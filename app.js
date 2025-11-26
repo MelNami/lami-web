@@ -1,5 +1,5 @@
 /* CONFIG: tu número WhatsApp sin + ni 00 */
-const WHATSAPP_NUMBER = "591TU_NUMERO";
+const WHATSAPP_NUMBER = "59176779264";
 const CURRENCY = "Bs";
 
 let PRODUCTS = [];
