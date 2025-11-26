@@ -1,6 +1,3 @@
 [build]
   command = "node netlify-build.js"
   publish = "."
-
-[[plugins]]
-  package = "@netlify/plugin-local-install"
