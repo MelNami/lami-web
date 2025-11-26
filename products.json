@@ -1,95 +1,100 @@
 {
   "items": [
     {
-      "id": 1,
-      "name": "Gatito Derretido LAMI",
-      "shortDescription": "El meme favorito convertido en peluche suave.",
-      "longDescription": "Nuestro icónico Gatito Derretido llega como un peluche suave, tierno y perfecto para abrazar. Ideal para fans de los memes y coleccionistas.",
-      "price": 32,
-      "size": "27 cm",
+      "id": "meowl-22",
+      "name": "MEOWL 22 cm Clásico",
+      "price": 45,
       "available": true,
-      "restockDate": null,
-      "img": "images/logo.png",
+      "restockDate": "",
+      "img": "images/meowl22.jpeg",
       "images": [
-        "images/logo.png",
-        "images/logo.png",
-        "images/logo.png"
-      ]
+        "images/meowl22.jpeg",
+        "images/meowl22.jpeg",
+        "images/meowl22.jpeg"
+      ],
+      "shortDescription": "Meowl 22 cm reversible, suave y abrazable.",
+      "longDescription": "Meowl de 22 cm de alto, relleno de fibra siliconada, con el diseño del Meowl en la parte frontal y el diseño de las plumas del búho en el reverso. Textura suave tipo almohadita, perfecto para abrazar o decorar.",
+      "size": "22 cm"
     },
     {
-      "id": 2,
-      "name": "Pollito Dramático",
-      "shortDescription": "Drama y ternura en un solo peluche.",
-      "longDescription": "Este Pollito Dramático expresa exactamente cómo te sientes a veces. Suave, gracioso y perfecto para regalar.",
-      "price": 30,
-      "size": "27 cm",
+      "id": "meowl-22-navidad",
+      "name": "MEOWL 22 cm Navideño (gorro removible)",
+      "price": 60,
       "available": true,
-      "restockDate": null,
-      "img": "images/logo.png",
+      "restockDate": "",
+      "img": "images/meowl22.jpeg",
       "images": [
-        "images/logo.png",
-        "images/logo.png"
-      ]
+        "images/meowl22.jpeg",
+        "images/meowl22.jpeg",
+        "images/meowl22.jpeg"
+      ],
+      "shortDescription": "Edición navideña con gorrito removible.",
+      "longDescription": "Versión navideña del Meowl 22 cm. Mantiene el relleno de fibra siliconada y el diseño reversible, e incluye un gorrito navideño que se puede poner y sacar. Ideal como regalo de temporada.",
+      "size": "22 cm"
     },
     {
-      "id": 3,
-      "name": "Banana Cat LAMI",
-      "shortDescription": "El clásico gato banana hecho peluche.",
-      "longDescription": "Suave, adorable y perfecto para quienes aman lo kawaii. Diseño exclusivo de LAMI inspirado en memes virales.",
-      "price": 32,
-      "size": "27 cm",
+      "id": "meowl-35",
+      "name": "MEOWL Gigante 35 cm",
+      "price": 130,
+      "available": true,
+      "restockDate": "",
+      "img": "images/meowl22.jpeg",
+      "images": [
+        "images/meowl22.jpeg",
+        "images/meowl22.jpeg",
+        "images/meowl22.jpeg"
+      ],
+      "shortDescription": "Versión grande del Meowl, más abrazable.",
+      "longDescription": "MEOWL gigante de 35 cm de alto, con relleno extra de fibra siliconada para que sea súper esponjoso. Mantiene el concepto reversible: Meowl por delante y detalle de plumas por detrás.",
+      "size": "35 cm"
+    },
+    {
+      "id": "laira-40",
+      "name": "LA IRA MA CONSUME 40 cm",
+      "price": 130,
+      "available": true,
+      "restockDate": "",
+      "img": "images/meowl22.jpeg",
+      "images": [
+        "images/laira.jpeg",
+        "images/laira.jpeg",
+        "images/laira.jpeg"
+      ],
+      "shortDescription": "Peluchito reversible estilo LAIRA MA CONSUME.",
+      "longDescription": "Peluchito LA IRA MA CONSUME de 40 cm, también con relleno de fibra siliconada y diseño reversible ámberosoy. Pensado para fans de los memes y coleccionistas de piezas únicas.",
+      "size": "40 cm"
+    },
+    {
+      "id": "gatito-galactico",
+      "name": "Gatito Galáctico LAMI",
+      "price": 55,
       "available": false,
-      "restockDate": "2025-12-01T00:00:00",
-      "img": "images/logo.png",
+      "restockDate": "2025-11-29T18:00:00",
+      "img": "images/meowl22.jpeg",
       "images": [
-        "images/logo.png",
-        "images/logo.png",
-        "images/logo.png"
-      ]
+        "images/meowl22.jpeg",
+        "images/meowl22.jpeg",
+        "images/meowl22.jpeg"
+      ],
+      "shortDescription": "Gatito espacial con colores neón (agotado).",
+      "longDescription": "Edición especial Gatito Galáctico inspirado en galaxias y neones. Actualmente agotado, pero se repondrá en unos días. Ideal para quienes aman diseños más fantasiosos.",
+      "size": "23 cm"
     },
     {
-      "id": 4,
-      "name": "Perro Sorprendido",
-      "shortDescription": "Expresión épica en versión peluche.",
-      "longDescription": "Un peluche súper suave con la carita más sorprendente del internet. Ideal para regalos divertidos.",
-      "price": 31,
-      "size": "27 cm",
-      "available": true,
-      "restockDate": null,
-      "img": "images/logo.png",
-      "images": [
-        "images/logo.png"
-      ]
-    },
-    {
-      "id": 5,
-      "name": "Gato Lloroso Cute",
-      "shortDescription": "El meme del gatito llorón, versión tierna.",
-      "longDescription": "Un peluche adorablemente triste que da ternura y risas al mismo tiempo. Perfecto para acompañar tus días.",
-      "price": 30,
-      "size": "27 cm",
+      "id": "oso-nebulosa",
+      "name": "Osito Nebulosa LAMI",
+      "price": 62,
       "available": false,
-      "restockDate": "2025-11-28T16:00:00",
-      "img": "images/logo.png",
+      "restockDate": "2025-11-29T20:00:00",
+      "img": "images/meowl22.jpeg",
       "images": [
-        "images/logo.png",
-        "images/logo.png"
-      ]
-    },
-    {
-      "id": 6,
-      "name": "Gato Bailarín",
-      "shortDescription": "El peluche más fiestero de LAMI.",
-      "longDescription": "Inspirado en el meme viral del gato bailando. Suave, gracioso y listo para alegrar cualquier ambiente.",
-      "price": 32,
-      "size": "27 cm",
-      "available": true,
-      "restockDate": null,
-      "img": "images/logo.png",
-      "images": [
-        "images/logo.png",
-        "images/logo.png"
-      ]
+        "images/meowl22.jpeg",
+        "images/meowl22.jpeg",
+        "images/meowl22.jpeg"
+      ],
+      "shortDescription": "Osito suave con patrón de nebulosa (agotado).",
+      "longDescription": "Osito Nebulosa con estampado tipo galaxia en tonos morado, azul y rosa. Relleno de fibra siliconada y acabado suave. Agotado temporalmente; su restock está programado para dentro de 4 días.",
+      "size": "24 cm"
     }
   ]
 }
