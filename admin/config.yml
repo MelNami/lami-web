@@ -1,0 +1,28 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/products"
+public_folder: "/images/products"
+
+collections:
+  - name: "products"
+    label: "Productos"
+    folder: "data/products"
+    create: true
+    slug: "{{slug}}"
+    extension: "json"
+    format: "json"
+    fields:
+      - { label: "ID", name: "id", widget: "string" }
+      - { label: "Nombre", name: "name", widget: "string" }
+      - { label: "Precio (Bs)", name: "price", widget: "number", value_type: "float" }
+      - { label: "Descripción corta", name: "shortDescription", widget: "string" }
+      - { label: "Descripción larga", name: "longDescription", widget: "text" }
+      - { label: "Tamaño", name: "size", widget: "string" }
+      - { label: "Disponible", name: "available", widget: "boolean", default: true }
+      - { label: "Fecha de restock (countdown)", name: "restockDate", widget: "datetime", required: false }
+      - label: "Imágenes"
+        name: "images"
+        widget: "list"
+        field: { label: "Imagen", name: "image", widget: "image" }

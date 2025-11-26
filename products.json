@@ -1,0 +1,95 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "name": "Gatito Derretido LAMI",
+      "shortDescription": "El meme favorito convertido en peluche suave.",
+      "longDescription": "Nuestro icónico Gatito Derretido llega como un peluche suave, tierno y perfecto para abrazar. Ideal para fans de los memes y coleccionistas.",
+      "price": 32,
+      "size": "27 cm",
+      "available": true,
+      "restockDate": null,
+      "img": "images/logo.png",
+      "images": [
+        "images/logo.png",
+        "images/logo.png",
+        "images/logo.png"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Pollito Dramático",
+      "shortDescription": "Drama y ternura en un solo peluche.",
+      "longDescription": "Este Pollito Dramático expresa exactamente cómo te sientes a veces. Suave, gracioso y perfecto para regalar.",
+      "price": 30,
+      "size": "27 cm",
+      "available": true,
+      "restockDate": null,
+      "img": "images/logo.png",
+      "images": [
+        "images/logo.png",
+        "images/logo.png"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Banana Cat LAMI",
+      "shortDescription": "El clásico gato banana hecho peluche.",
+      "longDescription": "Suave, adorable y perfecto para quienes aman lo kawaii. Diseño exclusivo de LAMI inspirado en memes virales.",
+      "price": 32,
+      "size": "27 cm",
+      "available": false,
+      "restockDate": "2025-12-01T00:00:00",
+      "img": "images/logo.png",
+      "images": [
+        "images/logo.png",
+        "images/logo.png",
+        "images/logo.png"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Perro Sorprendido",
+      "shortDescription": "Expresión épica en versión peluche.",
+      "longDescription": "Un peluche súper suave con la carita más sorprendente del internet. Ideal para regalos divertidos.",
+      "price": 31,
+      "size": "27 cm",
+      "available": true,
+      "restockDate": null,
+      "img": "images/logo.png",
+      "images": [
+        "images/logo.png"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Gato Lloroso Cute",
+      "shortDescription": "El meme del gatito llorón, versión tierna.",
+      "longDescription": "Un peluche adorablemente triste que da ternura y risas al mismo tiempo. Perfecto para acompañar tus días.",
+      "price": 30,
+      "size": "27 cm",
+      "available": false,
+      "restockDate": "2025-11-28T16:00:00",
+      "img": "images/logo.png",
+      "images": [
+        "images/logo.png",
+        "images/logo.png"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Gato Bailarín",
+      "shortDescription": "El peluche más fiestero de LAMI.",
+      "longDescription": "Inspirado en el meme viral del gato bailando. Suave, gracioso y listo para alegrar cualquier ambiente.",
+      "price": 32,
+      "size": "27 cm",
+      "available": true,
+      "restockDate": null,
+      "img": "images/logo.png",
+      "images": [
+        "images/logo.png",
+        "images/logo.png"
+      ]
+    }
+  ]
+}
