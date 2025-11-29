@@ -39,6 +39,106 @@ body {
 .container { max-width:1100px; margin:20px auto; padding:0 18px; }
 h2 { margin-bottom:12px; }
 
+
+/* ====== NAVBAR ELEGANTE Y RESPONSIVO (MÓVIL PRIORITARIO) ====== */
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 18px;
+  background: linear-gradient(90deg, rgba(255,199,218,0.95), rgba(164,244,249,0.9));
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  position: sticky;
+  top: 0;
+  z-index: 1200;
+}
+
+/* izquierda: logo + texto */
+.nav-left { display: flex; align-items: center; gap: 12px; }
+.brand-text { display: flex; flex-direction: column; line-height: 1; }
+.site-title { margin: 0; font-size: 1.05rem; font-weight: 800; }
+.tag { font-size: 0.78rem; color: rgba(0,0,0,0.6); }
+
+/* derecha: links y carrito */
+.nav-right { display: flex; gap: 10px; align-items: center; }
+
+/* link estilo botón plano (Sobre LAMI) */
+.btn-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.9);
+  color: #222;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+/* estilo del chip carrito (botón) */
+.cart-chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border-radius: 999px;
+  padding: 8px 12px;
+  border: 0;
+  cursor: pointer;
+  box-shadow:
+    0 6px 0px #e6e6e6,        /* borde 3D inferior suave */
+    0 8px 18px rgba(0,0,0,0.08);
+  transition: transform .12s ease, box-shadow .12s ease;
+  font-weight: 700;
+}
+
+/* pequeño responsive: oculta texto y reduce paddings en móvil muy pequeño */
+@media (max-width: 420px) {
+  .cart-chip .cart-text { display: none; }
+  .btn-link { padding: 8px 10px; font-size: 0.9rem; }
+}
+
+/* icono del carrito */
+.cart-icon { font-size: 18px; }
+
+/* badge verde redondo */
+.cart-badge {
+  display: inline-block;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  line-height: 20px;
+  font-size: 12px;
+  font-weight: 800;
+  color: white;
+  background: #26c13b; /* verde */
+  border-radius: 999px;
+  box-shadow: 0 3px 8px rgba(38,193,59,0.28);
+  text-align: center;
+  transform: translateY(-1px);
+}
+
+/* cuando no hay items, ocultar badge (se controla también por JS) */
+.cart-badge.hidden { display: none; }
+
+/* efecto "press" en móvil */
+.cart-chip:active { transform: translateY(2px); box-shadow: 0 4px 8px rgba(0,0,0,0.06); }
+
+/* ajuste: logo más pequeño en móvil */
+@media (max-width: 540px) {
+  .logo { height:44px; width:44px; }
+  .site-title { font-size: 1rem; }
+  .tag { display:none; } /* opcional: esconder subtítulo en móvil */
+}
+
+
+
+
 /* CATALOGO GRID (contenedor #catalog) y tarjetas */
 #catalog {
   display: grid;
@@ -147,13 +247,6 @@ h2 { margin-bottom:12px; }
 }
 
 
- /* Cart floating button */
-.cart-btn {
-  position:fixed; right:18px; bottom:18px; background:var(--rosado);
-  border-radius:12px; padding:10px 14px; border:0; color:#222;
-  box-shadow:0 8px 26px rgba(0,0,0,.12); cursor:pointer;
-}
-
 /* DETAIL MODAL FULLSCREEN (antiguo .detail-inner estilo migrado) */
 .detail-modal {
   position: fixed;
@@ -229,6 +322,7 @@ h2 { margin-bottom:12px; }
 .countdown:empty {
   display: none;
 }
+
 
 /* CART modal base (legacy names kept) */
 .modal { position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,.35); z-index:999; }
@@ -766,4 +860,164 @@ h2 { margin-bottom:12px; }
   animation: wiggle 0.8s ease;
 }
 
+/* --- CARD 3D ULTRA BOTÓN --- */
+.card {
+  position: relative;
+  cursor: pointer;
 
+  background: #ffffff;
+  border-radius: 20px;
+
+  /* SOMBRA PROFUNDA (borde inferior) */
+  box-shadow:
+    0px 6px 0px #d8d8d8,        /* borde 3D inferior duro */
+    0 10px 18px rgba(0,0,0,0.15), /* sombra suave principal */
+    inset 0 4px 6px rgba(255,255,255,0.8); /* iluminación interna arriba */
+
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+
+/* EFECTO DE PRESIÓN (tap) */
+.card:active {
+  transform: translateY(4px);
+  
+  box-shadow:
+    0px 2px 0px #c4c4c4,        /* borde inferior casi desaparece */
+    0 4px 10px rgba(0,0,0,0.18), 
+    inset 0 3px 5px rgba(0,0,0,0.12); /* efecto de hundido */
+}
+
+/* HAZ QUE SE NOTE MÁS COMO BOTÓN */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+
+  /* borde brillante arriba → efecto elevación real */
+  border-top: 3px solid rgba(255,255,255,0.9);
+  border-left: 3px solid rgba(255,255,255,0.7);
+  border-right: 3px solid rgba(0,0,0,0.03);
+
+  pointer-events: none;
+}
+
+
+/* ==== FONDO MODERNO, ORGANIC WAVES (CSS PURO) ==== */
+body {
+  background: linear-gradient(135deg, #ffb0df 0%, #b7c4ff 50%, #94f9ff 100%);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* CAPA DECORATIVA DE FIGURAS BLANDITAS */
+body::before,
+body::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.28;   /* sutil, elegante */
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* CAPA 1 – FORMAS GRANDES */
+body::before {
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(255,255,255,0.8) 0%, transparent 55%),
+    radial-gradient(circle at 80% 30%, rgba(255,255,255,0.7) 0%, transparent 60%),
+    radial-gradient(circle at 40% 80%, rgba(255,255,255,0.65) 0%, transparent 70%);
+  filter: blur(40px);
+}
+
+/* CAPA 2 – ONDAS SUAVES */
+body::after {
+  background-image:
+    repeating-linear-gradient(
+      135deg,
+      rgba(255,255,255,0.15) 0px,
+      rgba(255,255,255,0.15) 40px,
+      rgba(255,255,255,0.05) 40px,
+      rgba(255,255,255,0.05) 80px
+    );
+  mix-blend-mode: soft-light;
+  opacity: 0.25;
+}
+
+
+/* ====== NAV CATEGORÍAS ====== */
+.category-nav {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  padding: 12px 0;
+  background: linear-gradient(90deg, #ffd6e8cc, #cafff5cc);
+  position: sticky;
+  top: 74px; /* debajo del navbar */
+  z-index: 900;
+  backdrop-filter: blur(8px);
+}
+
+.cat-btn {
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 0;
+  background: #ffffffaa;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: 0.15s;
+}
+
+.cat-btn.active {
+  background: var(--btn-add);
+  color: #fff;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.cat-btn:active {
+  transform: scale(.95);
+}
+
+#floatingCat {
+  position: fixed;
+  right: 18px;
+  bottom: 100px;
+  width: 70px;
+  height: 70px;
+  background: url('images/logo.png') center/cover no-repeat;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.16);
+  z-index: 2000;
+  cursor: pointer;
+  animation: floaty 3s ease-in-out infinite;
+}
+
+@keyframes floaty {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+.cat-message {
+  position: fixed;
+  right: 100px;
+  bottom: 120px;
+  background: #fff;
+  padding: 10px 14px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+  font-size: 0.9rem;
+  font-weight: 600;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity .35s ease, transform .35s ease;
+  z-index: 2001;
+}
+
+.cat-message.show {
+  opacity: 1;
+  transform: translateY(0);
+}

@@ -707,3 +707,95 @@ setTimeout(() => {
     setTimeout(() => btn.classList.remove('attention'), 900);
   });
 }, 1500);
+
+
+
+// --- CERRAR EL MODAL DE DETALLES ---
+const closeDetailBtn = document.getElementById("closeDetail");
+
+// Cerrar con botón X
+if (closeDetailBtn) {
+  closeDetailBtn.addEventListener("click", () => {
+    detailModal.style.display = "none";
+  });
+}
+
+// Cerrar tocando FUERA del contenido
+if (detailModal) {
+  detailModal.addEventListener("click", (e) => {
+    // Si haces clic en el fondo oscuro (not detail-container)
+    if (e.target === detailModal) {
+      detailModal.style.display = "none";
+    }
+  });
+}
+
+// Evitar que el click dentro del contenido cierre el modal
+const detailContainer = document.querySelector(".detail-container");
+if (detailContainer) {
+  detailContainer.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
+}
+
+
+// --- FILTRO DE CATEGORÍAS ---
+const catButtons = document.querySelectorAll(".cat-btn");
+
+const secPeluches = document.querySelector("section:nth-of-type(1)");
+const secLlaveros = document.querySelector("section:nth-of-type(2)");
+
+// Ocultar llaveros al inicio
+secLlaveros.style.display = "none";
+
+catButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    // activar botón
+    catButtons.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    if (btn.dataset.target === "peluches") {
+      secPeluches.style.display = "block";
+      secLlaveros.style.display = "none";
+    } else {
+      secPeluches.style.display = "none";
+      secLlaveros.style.display = "block";
+    }
+
+    // subir arriba
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+});
+
+
+
+// =============================
+// GATITO MENSAJES RANDOM (Opción B)
+// =============================
+const cat = document.getElementById("floatingCat");
+const catMessage = document.getElementById("catMessage");
+
+const mensajes = [
+  "🐾 Hola, toca cualquier peluche para ver más.",
+  "💖 Gracias por visitarnos.",
+  "🎁 También hacemos peluches personalizados.",
+  "📦 Enviamos a toda Bolivia.",
+  "😺 ¿Ya viste los Meowl nuevos?",
+  "✨ Cada peluchito se hace con mucho cariño."
+];
+
+function showRandomMessage() {
+  const msg = mensajes[Math.floor(Math.random() * mensajes.length)];
+  catMessage.textContent = msg;
+  catMessage.classList.add("show");
+
+  setTimeout(() => {
+    catMessage.classList.remove("show");
+  }, 3500);
+}
+
+// mensaje cada 25 segundos
+setInterval(showRandomMessage, 8000);
+
+// también cuando el usuario toca el gatito
+cat.addEventListener("click", showRandomMessage);
