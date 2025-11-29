@@ -18,90 +18,92 @@
   </header>
 
   <main class="container">
+    <!-- Sección: Peluches -->
     <section>
-      <h2>Catálogo</h2>
-      <div id="catalog" class="grid"></div>
+      <h2>Peluches</h2>
+      <div id="catalog-peluches" class="grid"></div>
+    </section>
+
+    <!-- Sección: Llaveros -->
+    <section style="margin-top:40px;">
+      <h2>Llaveros</h2>
+      <div id="catalog-llaveros" class="grid"></div>
     </section>
   </main>
 
   <button id="cartBtn" class="cart-btn">Carrito (<span id="cartCount">0</span>)</button>
 
   <!-- Modal FULLSCREEN para Ver más detalles -->
-  <!-- ============================
-     MODAL DE DETALLES MODERNO
-=============================-->
-<div id="detailModal" class="detail-modal">
-  <div class="detail-container">
-    
-    <button id="closeDetail" class="detail-close">&times;</button>
+  <div id="detailModal" class="detail-modal">
+    <div class="detail-container">
+      
+      <button id="closeDetail" class="detail-close">&times;</button>
 
-    <div class="detail-left">
+      <div class="detail-left">
 
-      <!-- Imagen principal grande -->
-      <div class="detail-main-wrapper">
-        <button id="prevImg" class="detail-nav prev">&#10094;</button>
+        <!-- Imagen principal grande -->
+        <div class="detail-main-wrapper">
+          <button id="prevImg" class="detail-nav prev">&#10094;</button>
 
-        <img id="detail-main" class="detail-main-img">
+          <img id="detail-main" class="detail-main-img" alt="Imagen del producto">
 
-        <button id="nextImg" class="detail-nav next">&#10095;</button>
+          <button id="nextImg" class="detail-nav next">&#10095;</button>
+        </div>
+
+        <!-- Miniaturas -->
+        <div id="detail-thumbs" class="detail-thumbs" aria-hidden="false"></div>
       </div>
 
-      <!-- Miniaturas -->
-      <div id="detail-thumbs" class="detail-thumbs"></div>
+      <div class="detail-right">
+        <h2 id="detail-name" class="detail-title"></h2>
+
+        <div id="detail-price" class="detail-price" aria-live="polite"></div>
+
+        <div id="detail-size" class="detail-size"></div>
+
+        <p id="detail-desc" class="detail-desc"></p>
+
+        <div id="detail-countdown" class="detail-countdown"></div>
+      </div>
+
     </div>
-
-    <div class="detail-right">
-      <h2 id="detail-name" class="detail-title"></h2>
-
-      <div id="detail-price" class="detail-price"></div>
-
-      <div id="detail-size" class="detail-size"></div>
-
-      <p id="detail-desc" class="detail-desc"></p>
-
-      <div id="detail-countdown" class="detail-countdown"></div>
-    </div>
-
   </div>
-</div>
-
 
   <!-- Modal carrito (simple) -->
   <div id="cartModal" class="modal">
-  <div class="modal-content cart-modern">
-    <span id="closeCart" class="close">&times;</span>
-    <h2 class="cart-title">Tu Carrito</h2>
+    <div class="modal-content cart-modern">
+      <span id="closeCart" class="close" role="button" aria-label="Cerrar carrito">&times;</span>
+      <h2 class="cart-title">Tu Carrito</h2>
 
-    <!-- Tabla contenedora -->
-    <table class="cart-table">
-      <thead>
-        <tr>
-          <th>Producto</th>
-          <th>Nombre</th>
-          <th>Cant.</th>
-          <th>Subtotal</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody id="cartContent"></tbody>
-    </table>
+      <!-- Tabla contenedora -->
+      <table class="cart-table" role="table" aria-label="Carrito de compras">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Nombre</th>
+            <th>Cant.</th>
+            <th>Subtotal</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="cartContent"></tbody>
+      </table>
 
-    <div class="cart-total">
-      <span id="totalText"></span>
-    </div>
+      <div class="cart-total">
+        <span id="totalText"></span>
+      </div>
 
-    <div class="cart-buttons">
-      <a id="payWhatsapp" class="btn-whatsapp" href="#" target="_blank">
-        Pagar por WhatsApp
-      </a>
+      <div class="cart-buttons">
+        <a id="payWhatsapp" class="btn-whatsapp" href="#" target="_blank" rel="noopener">
+          Pedir por WhatsApp
+        </a>
 
-      <button id="clearCart" class="btn-clear">Vaciar carrito</button>
+        <button id="clearCart" class="btn-clear">Vaciar carrito</button>
+      </div>
     </div>
   </div>
-</div>
 
-
-  <div id="toast-wrap"></div>
+  <div id="toast-wrap" aria-live="polite"></div>
 
   <footer class="site-footer">© 2025 LAMI — Peluches tiernos</footer>
 

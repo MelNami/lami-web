@@ -19,70 +19,133 @@ async function loadProducts(){
     startCountdowns();
   } catch(e){
     console.error('No se pudo cargar products.json', e);
-    document.getElementById('catalog').innerHTML =
-      '<p>No se pudieron cargar los productos.</p>';
+    // index.html ahora tiene dos contenedores: catalog-peluches y catalog-llaveros
+    const pCont = document.getElementById('catalog-peluches');
+    const lCont = document.getElementById('catalog-llaveros');
+    if(pCont) pCont.innerHTML = '<p>No se pudieron cargar los productos.</p>';
+    if(lCont) lCont.innerHTML = '';
   }
 }
 
 /* ============================
-   Render catálogo (minimal)
+   Render catálogo (por categorías)
+   Categorías esperadas: "peluche", "llavero"
+   Si no existe category -> se considera "peluche"
 ============================ */
 function renderCatalog(){
-  const out = document.getElementById('catalog');
-  out.innerHTML = '';
+  const contPeluches = document.getElementById('catalog-peluches');
+  const contLlaveros = document.getElementById('catalog-llaveros');
+
+  if(!contPeluches || !contLlaveros){
+    // Fallback: si el HTML viejo sigue existiendo, usa #catalog
+    const out = document.getElementById('catalog');
+    if(out){
+      out.innerHTML = '';
+      PRODUCTS.forEach(p => {
+        const card = buildCard(p);
+        out.appendChild(card);
+        attachCardEvents(p);
+      });
+      return;
+    }
+    return;
+  }
+
+  contPeluches.innerHTML = '';
+  contLlaveros.innerHTML = '';
 
   PRODUCTS.forEach(p => {
-    const card = document.createElement('article');
-    card.className = 'card';
-    if(!p.available) card.classList.add('opaco');
+    const card = buildCard(p);
 
-    const ribbon = (!p.available) ? `<div class="ribbon">AGOTADO</div>` : '';
-    const hero = p.img || (p.images && p.images[0]) || '';
-
-    card.innerHTML = `
-      ${ribbon}
-      <div class="hero"><img src="${hero}" alt="${escapeHtml(p.name)}"></div>
-      <div class="title">${escapeHtml(p.name)}</div>
-      <div class="short">${escapeHtml(p.shortDescription || '')}</div>
-      <div class="price">${CURRENCY} ${formatMoney(p.price)}</div>
-
-      <div class="countdown" id="cd-${p.id}"></div>
-
-      <div class="controls">
-        <div class="counter-badge" id="badge-${p.id}" style="display:none"></div>
-
-        ${ p.available
-            ? `<button id="add-${p.id}" class="btn btn.primary">${buttonTextFor(p.id)}</button>`
-            : ''
-        }
-
-        <button id="more-${p.id}" class="btn secondary">Ver más detalles</button>
-      </div>
-    `;
-
-    out.appendChild(card);
-
-    /* botón: añadir (solo en catálogo) */
-    if(p.available){
-      document.getElementById(`add-${p.id}`).addEventListener('click', ()=>{
-        addToCart(p.id, 1);
-        updateCardUI(p.id);
-      });
+    // asignar por categoría
+    const cat = (p.category || 'peluche').toLowerCase();
+    if(cat === 'llavero'){
+      contLlaveros.appendChild(card);
+    } else {
+      // por defecto todo lo demás va a Peluches
+      contPeluches.appendChild(card);
     }
 
-    /* botón: ver más -> abre modal (ahora sin añadir) */
-    document.getElementById(`more-${p.id}`).addEventListener('click', ()=>{
+    attachCardEvents(p);
+  });
+}
+
+/* Construye el elemento card (sin añadir eventos) */
+function buildCard(p){
+  const card = document.createElement('article');
+  card.className = 'card';
+  // añadimos un id al card para poder referenciarlo después
+  card.id = `card-${p.id}`;
+
+  if(!p.available) card.classList.add('opaco');
+
+  const ribbon = (!p.available) ? `<div class="ribbon">AGOTADO</div>` : '';
+  const hero = p.img || (p.images && p.images[0]) || '';
+
+  card.innerHTML = `
+    ${ribbon}
+    <div class="hero"><img src="${hero}" alt="${escapeHtml(p.name)}"></div>
+    <div class="title">${escapeHtml(p.name)}</div>
+    <div class="short">${escapeHtml(p.shortDescription || '')}</div>
+    <div class="price">${CURRENCY} ${formatMoney(p.price)}</div>
+
+    <div class="countdown" id="cd-${p.id}"></div>
+
+    <div class="controls">
+      <div class="counter-badge" id="badge-${p.id}" style="display:none"></div>
+
+     ${ p.available
+        ? `<button id="add-${p.id}" class="btn primary">${buttonTextFor(p.id)}</button>`
+        : ''
+    }
+
+    </div>
+  `;
+  return card;
+}
+
+/* adjunta listeners después de haber insertado la card en el DOM */
+function attachCardEvents(p){
+  // localizar el elemento card por id
+  const cardEl = document.getElementById(`card-${p.id}`);
+
+  // 1) Hacer que toda la tarjeta abra el modal
+  if(cardEl){
+    cardEl.addEventListener('click', (e) => {
+      // si el clic vino desde el botón "Añadir" (o dentro de él), NO abrir el modal
+      if (!e.target.closest('.primary')) {
+        openDetailModal(p.id);
+      }
+    });
+  }
+
+  // 2) Listener del botón añadir (si existe)
+  const addBtn = document.getElementById(`add-${p.id}`);
+  if(addBtn){
+    addBtn.addEventListener('click', (ev)=>{
+      // prevenir que el click en el botón burbujee y ejecute el listener del card
+      ev.stopPropagation();
+      addToCart(p.id, 1);
+      updateCardUI(p.id);
+    });
+  }
+
+  // No usamos "moreBtn" porque eliminamos ese botón; esto es solo por seguridad si existiera
+  const moreBtn = document.getElementById(`more-${p.id}`);
+  if(moreBtn){
+    moreBtn.addEventListener('click', (ev) => {
+      ev.stopPropagation();
       openDetailModal(p.id);
     });
+  }
 
-    updateCardUI(p.id);
-  });
+  updateCardUI(p.id);
 }
 
 /* texto del botón */
 function buttonTextFor(id){
   const qty = (cart[id] && cart[id].qty) || 0;
-  return qty > 0 ? `Añadir 1 más` : `Añadir`;
+  return qty > 0 ? `Añadir 1 más` : `Añadir al Carrito`;
 }
 
 /* actualizar UI card */
@@ -118,7 +181,8 @@ function addToCart(id, q=1){
   renderCartCount();
   updateCardUI(id);
 
-  showToast(`Se añadió ${p.name} al carrito.`);
+  showToast(`${p.name} añadido al carrito`);
+
 }
 
 /* ============================
@@ -130,7 +194,8 @@ function saveCart(){
 function renderCartCount(){
   const total = Object.values(cart)
                       .reduce((s,i)=> s + (i.qty||0), 0);
-  document.getElementById('cartCount').textContent = total;
+  const el = document.getElementById('cartCount');
+  if(el) el.textContent = total;
 }
 
 /* ============================
@@ -154,10 +219,12 @@ const detailCountdown = document.getElementById('detail-countdown');
 let currentDetail = null;
 let currentImageIndex = 0;
 
-document.getElementById('closeDetail')
-        .addEventListener('click', ()=> {
-          detailModal.style.display = 'none';
-        });
+if(document.getElementById('closeDetail')){
+  document.getElementById('closeDetail')
+          .addEventListener('click', ()=> {
+            if(detailModal) detailModal.style.display = 'none';
+          });
+}
 
 function openDetailModal(id){
   const p = PRODUCTS.find(x=>x.id===id);
@@ -204,22 +271,26 @@ function openDetailModal(id){
 }
 
 /* navegar carrusel */
-detailPrev.addEventListener('click', ()=>{
-  if(!currentDetail) return;
-  const imgs = currentDetail.images || [currentDetail.img];
-  currentImageIndex = (currentImageIndex - 1 + imgs.length) % imgs.length;
-  detailMain.src = imgs[currentImageIndex];
-  detailThumbs.querySelectorAll('img')
-              .forEach((i,idx)=> i.classList.toggle('active', idx===currentImageIndex));
-});
-detailNext.addEventListener('click', ()=>{
-  if(!currentDetail) return;
-  const imgs = currentDetail.images || [currentDetail.img];
-  currentImageIndex = (currentImageIndex + 1) % imgs.length;
-  detailMain.src = imgs[currentImageIndex];
-  detailThumbs.querySelectorAll('img')
-              .forEach((i,idx)=> i.classList.toggle('active', idx===currentImageIndex));
-});
+if(detailPrev){
+  detailPrev.addEventListener('click', ()=>{
+    if(!currentDetail) return;
+    const imgs = currentDetail.images || [currentDetail.img];
+    currentImageIndex = (currentImageIndex - 1 + imgs.length) % imgs.length;
+    detailMain.src = imgs[currentImageIndex];
+    detailThumbs.querySelectorAll('img')
+                .forEach((i,idx)=> i.classList.toggle('active', idx===currentImageIndex));
+  });
+}
+if(detailNext){
+  detailNext.addEventListener('click', ()=>{
+    if(!currentDetail) return;
+    const imgs = currentDetail.images || [currentDetail.img];
+    currentImageIndex = (currentImageIndex + 1) % imgs.length;
+    detailMain.src = imgs[currentImageIndex];
+    detailThumbs.querySelectorAll('img')
+                .forEach((i,idx)=> i.classList.toggle('active', idx===currentImageIndex));
+  });
+}
 
 /* ============================
    Countdown en cards
@@ -346,38 +417,48 @@ const closeCart = document.getElementById('closeCart');
 const clearCartBtn = document.getElementById('clearCart');
 
 /* abrir carrito */
-document.getElementById('cartBtn').addEventListener('click', ()=>{
-  renderCartModal();
-  cartModal.style.display = 'flex';
-});
+const cartBtn = document.getElementById('cartBtn');
+if(cartBtn){
+  cartBtn.addEventListener('click', ()=>{
+    renderCartModal();
+    if(cartModal) cartModal.style.display = 'flex';
+  });
+}
 
 /* cerrar carrito */
-closeCart.addEventListener('click', ()=>{
-  cartModal.style.display = 'none';
-});
+if(closeCart){
+  closeCart.addEventListener('click', ()=>{
+    if(cartModal) cartModal.style.display = 'none';
+  });
+}
 
 /* vaciar carrito */
-clearCartBtn.addEventListener('click', ()=>{
-  cart = {};
-  saveCart();
-  renderCartCount();
-  renderCatalog();
-  cartModal.style.display = 'none';
-});
+if(clearCartBtn){
+  clearCartBtn.addEventListener('click', ()=>{
+    cart = {};
+    saveCart();
+    renderCartCount();
+    renderCatalog();
+    if(cartModal) cartModal.style.display = 'none';
+  });
+}
 
-/* render carrito */
+/* render carrito - REEMPLAZAR la función actual por esta versión */
 function renderCartModal(){
   const items = Object.values(cart);
+  if(!cartContent) return;
   cartContent.innerHTML = "";
 
   if(items.length === 0){
-    cartContent.innerHTML = "<p>Tu carrito está vacío.</p>";
-    totalText.textContent = "Total: Bs 0.00";
-    payWhatsapp.style.display = "none";
+    cartContent.innerHTML = `
+      <tr><td colspan="5"><p>Tu carrito está vacío.</p></td></tr>
+    `;
+    if(totalText) totalText.textContent = "Total: Bs 0.00";
+    if(payWhatsapp) payWhatsapp.style.display = "none";
     return;
   }
 
-  payWhatsapp.style.display = "inline-block";
+  if(payWhatsapp) payWhatsapp.style.display = "inline-block";
 
   let total = 0;
 
@@ -385,60 +466,64 @@ function renderCartModal(){
     const subtotal = item.qty * item.price;
     total += subtotal;
 
-    const row = document.createElement('div');
-    row.style.marginBottom = "12px";
+    // Crear fila de tabla
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td class="cart-col-img">
+        <img src="${item.img || (item.images?.[0] || '')}" class="cart-thumb" alt="${escapeHtml(item.name)}">
+      </td>
 
-    row.innerHTML = `
-      <tr>
-        <td>
-          <img src="${item.img || (item.images?.[0] || '')}" class="cart-thumb">
-        </td>
+      <td class="cart-col-name">
+        <div class="cart-name">${escapeHtml(item.name)}</div>
+      </td>
 
-        <td>${escapeHtml(item.name)}</td>
+      <td class="cart-col-qty">
+        <input type="number" min="1"
+              value="${item.qty}"
+              id="cqty-${item.id}"
+              class="cart-qty-input">
+      </td>
 
-        <td>
-          <input type="number" min="1"
-                value="${item.qty}"
-                id="cqty-${item.id}"
-                class="cart-qty-input">
-        </td>
+      <td class="cart-col-sub">Bs ${formatMoney(subtotal)}</td>
 
-        <td>Bs ${formatMoney(subtotal)}</td>
-
-        <td>
-          <button class="cart-remove-btn" id="rm-${item.id}">X</button>
-        </td>
-      </tr>
+      <td class="cart-col-rm">
+        <button class="cart-remove-btn" id="rm-${item.id}" aria-label="Eliminar ${escapeHtml(item.name)}">X</button>
+      </td>
     `;
 
-
-    cartContent.appendChild(row);
+    cartContent.appendChild(tr);
 
     /* cambiar cantidad */
-    document.getElementById(`cqty-${item.id}`).addEventListener('change',(e)=>{
-      const q = parseInt(e.target.value)||0;
-      if(q <= 0){
-        delete cart[item.id];
-      } else {
-        cart[item.id].qty = q;
-      }
-      saveCart();
-      renderCartCount();
-      renderCatalog();
-      renderCartModal();
-    });
+    const qtyInput = document.getElementById(`cqty-${item.id}`);
+    if(qtyInput){
+      qtyInput.addEventListener('change',(e)=>{
+        const q = parseInt(e.target.value)||0;
+        if(q <= 0){
+          delete cart[item.id];
+        } else {
+          cart[item.id].qty = q;
+        }
+        saveCart();
+        renderCartCount();
+        renderCatalog();
+        renderCartModal();
+      });
+    }
 
     /* eliminar */
-    document.getElementById(`rm-${item.id}`).addEventListener('click', ()=>{
-      delete cart[item.id];
-      saveCart();
-      renderCartCount();
-      renderCatalog();
-      renderCartModal();
-    });
+    const rmBtn = document.getElementById(`rm-${item.id}`);
+    if(rmBtn){
+      rmBtn.addEventListener('click', ()=>{
+        delete cart[item.id];
+        saveCart();
+        renderCartCount();
+        renderCatalog();
+        renderCartModal();
+      });
+    }
   });
 
-  totalText.textContent = `Total: Bs ${formatMoney(total)}`;
+  if(totalText) totalText.textContent = `Total: Bs ${formatMoney(total)}`;
   updateWhatsappLink();
 }
 
@@ -446,7 +531,7 @@ function renderCartModal(){
 function updateWhatsappLink(){
   const items = Object.values(cart);
   if(items.length === 0){
-    payWhatsapp.style.display = "none";
+    if(payWhatsapp) payWhatsapp.style.display = "none";
     return;
   }
 
@@ -459,13 +544,13 @@ function updateWhatsappLink(){
   const total = items.reduce((s,i)=> s + i.qty*i.price, 0);
   msg += `%0ATotal: Bs ${formatMoney(total)}`;
 
-  payWhatsapp.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
+  if(payWhatsapp) payWhatsapp.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
 }
 
 /* cerrar modal al hacer clic fuera */
 window.addEventListener('click',(e)=>{
   if(e.target === cartModal){
-    cartModal.style.display = 'none';
+    if(cartModal) cartModal.style.display = 'none';
   }
 });
 

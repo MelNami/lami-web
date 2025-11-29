@@ -2,86 +2,105 @@
   "items": [
     {
       "id": "meowl-22",
-      "name": "MEOWL 22 cm Clásico",
+      "category": "peluche",
+      "name": "Peluche Meowl mediano",
       "price": 45,
       "available": true,
       "restockDate": "",
-      "img": "images/meowl22.jpeg",
+      "img": "images/ml.jpg",
       "images": [
-        "images/meowl22.jpeg",
-        "images/meowl22.jpeg",
+        "images/ml1.jpg",
+        "images/ml2.jpg",
         "images/meowl22.jpeg"
       ],
-      "shortDescription": "Meowl 22 cm reversible, suave y abrazable.",
+      "shortDescription": "Peluche Meowl, suave y abrazable.",
       "longDescription": "Meowl de 22 cm de alto, relleno de fibra siliconada, con el diseño del Meowl en la parte frontal y el diseño de las plumas del búho en el reverso. Textura suave tipo almohadita, perfecto para abrazar o decorar.",
       "size": "22 cm"
     },
     {
       "id": "meowl-22-navidad",
-      "name": "MEOWL 22 cm Navideño (gorro removible)",
+      "category": "peluche",
+      "name": "Peluche Meowl Navideño",
       "price": 60,
       "available": true,
       "restockDate": "",
-      "img": "images/meowl22.jpeg",
+      "img": "images/mln.jpg",
       "images": [
-        "images/meowl22.jpeg",
-        "images/meowl22.jpeg",
-        "images/meowl22.jpeg"
+        "images/mln1.jpg",
+        "images/mln2.jpg"
       ],
       "shortDescription": "Edición navideña con gorrito removible.",
-      "longDescription": "Versión navideña del Meowl 22 cm. Mantiene el relleno de fibra siliconada y el diseño reversible, e incluye un gorrito navideño que se puede poner y sacar. Ideal como regalo de temporada.",
+      "longDescription": "Versión navideña del Meowl 22 cm. Mantiene el relleno de fibra siliconada ,  incluye un gorrito navideño que se puede poner y sacar. Ideal como regalo de temporada.",
       "size": "22 cm"
     },
     {
       "id": "meowl-35",
-      "name": "MEOWL Gigante 35 cm",
+      "category": "peluche",
+      "name": "Peluche Meowl grande",
       "price": 130,
       "available": true,
       "restockDate": "",
-      "img": "images/meowl22.jpeg",
+      "img": "images/mlg.jpg",
       "images": [
-        "images/meowl22.jpeg",
-        "images/meowl22.jpeg",
-        "images/meowl22.jpeg"
+        "images/mlg1.jpg",
+        "images/mlg2.jpg"
       ],
       "shortDescription": "Versión grande del Meowl, más abrazable.",
-      "longDescription": "MEOWL gigante de 35 cm de alto, con relleno extra de fibra siliconada para que sea súper esponjoso. Mantiene el concepto reversible: Meowl por delante y detalle de plumas por detrás.",
+      "longDescription": "MEOWL grandote mide 35 cm de alto, con relleno extra de fibra siliconada para que sea súper esponjoso. ",
       "size": "35 cm"
     },
     {
       "id": "laira-40",
-      "name": "LA IRA MA CONSUME 40 cm",
+      "category": "peluche",
+      "name": "Peluche la ira me consume (Zuzu)",
       "price": 130,
       "available": true,
       "restockDate": "",
-      "img": "images/laira.jpeg",
+      "img": "images/ira.jpg",
       "images": [
-        "images/laira.jpeg",
-        "images/laira.jpeg",
+        "images/ira1.jpg",
+        "images/ira2.jpg",
         "images/laira.jpeg"
       ],
-      "shortDescription": "Peluchito reversible estilo LAIRA MA CONSUME.",
-      "longDescription": "Peluchito LA IRA MA CONSUME de 40 cm, también con relleno de fibra siliconada y diseño reversible ámberosoy. Pensado para fans de los memes y coleccionistas de piezas únicas.",
+      "shortDescription": "Peluche de La ira me consume o Zuzu.",
+      "longDescription": "Este peluche mide 40 cm. de alto , puedes uarlo como almohada, también con relleno de fibra siliconada. Perfecto para un regalo unico y diferente.",
       "size": "40 cm"
     },
     {
-      "id": "gatito-galactico",
-      "name": "Gatito Galáctico LAMI",
-      "price": 55,
-      "available": false,
-      "restockDate": "2025-11-29T18:00:00",
-      "img": "images/meowl22.jpeg",
+      "id": "banacacat24",
+      "category": "peluche",
+      "name": "Peluche Banana Cat",
+      "price": 30,
+      "available": true,
+      "restockDate": "",
+      "img": "images/bn.jpg",
       "images": [
-        "images/meowl22.jpeg",
-        "images/meowl22.jpeg",
-        "images/meowl22.jpeg"
+        "images/bn1.jpg",
+        "images/bn2.jpg"
       ],
-      "shortDescription": "Gatito espacial con colores neón (agotado).",
-      "longDescription": "Edición especial Gatito Galáctico inspirado en galaxias y neones. Actualmente agotado, pero se repondrá en unos días. Ideal para quienes aman diseños más fantasiosos.",
+      "shortDescription": "Gatito Banana cat",
+      "longDescription": "El peluchito mide 24 cm. de alto.",
+      "size": "24 cm."
+    },
+    {
+      "id": "michiBerenjena24",
+      "category": "peluche",
+      "name": "Peluche Michi berenjena",
+      "price": 30,
+      "available": true,
+      "restockDate": "",
+      "img": "images/berj.jpg",
+      "images": [
+        "images/berj1.jpg",
+        "images/berj2.jpg"
+      ],
+      "shortDescription": "Peluche mediano de Michi Berenjena.",
+      "longDescription": "Este es un peluche de un gatito Berenjena ,mide 23 cm. de alto. ",
       "size": "23 cm"
     },
     {
       "id": "oso-nebulosa",
+      "category": "peluche",
       "name": "Osito Nebulosa LAMI",
       "price": 62,
       "available": false,
@@ -95,6 +114,88 @@
       "shortDescription": "Osito suave con patrón de nebulosa (agotado).",
       "longDescription": "Osito Nebulosa con estampado tipo galaxia en tonos morado, azul y rosa. Relleno de fibra siliconada y acabado suave. Agotado temporalmente; su restock está programado para dentro de 4 días.",
       "size": "24 cm"
+    },
+    {
+      "id": "ll-michicocacola",
+      "category": "llavero",
+      "name": "Llavero Michi Coca Cola",
+      "price": 17,
+      "available": true,
+      "restockDate": "",
+      "img": "images/llcc.jpg",
+      "images": [
+        "images/llcc1.jpg",
+        "images/llcc2.jpg"
+      ],
+      "shortDescription": "Llavero de Coca Cola",
+      "longDescription": "Llavero de Michi Coca Cola amberso y reverso.",
+      "size": "12 cm"
+    },
+    {
+      "id": "ll-pizza",
+      "category": "llavero",
+      "name": "Llavero de Pizza",
+      "price": 17,
+      "available": true,
+      "restockDate": "",
+      "img": "images/llpz.jpg",
+      "images": [
+        "images/llpz1.jpg",
+        "images/llpz2.jpg"
+      ],
+      "shortDescription": "Llavero del Michi Pizza.",
+      "longDescription": "Lindo llavero.",
+      "size": "12 cm"
+    },
+    {
+      "id": "ll-michimentisan",
+      "category": "llavero",
+      "name": "Llavero Michi Mentisan",
+      "price": 17,
+      "available": true,
+      "restockDate": "",
+      "img": "images/llmts.jpg",
+      "images": [
+        "images/llmts1.jpg",
+        "images/llmts2.jpg"
+      ],
+      "shortDescription": "Llavero del Michi Mentisan.",
+      "longDescription": "Lindo llavero.",
+      "size": "12 cm"
+    },
+    {
+      "id": "ll-pilmanzana",
+      "category": "llavero",
+      "name": "Llavero pilfrut manzana",
+      "price": 17,
+      "available": true,
+      "restockDate": "",
+      "img": "images/llpilm.jpg",
+      "images": [
+        "images/llpilm1.jpg",
+        "images/llpilm2.jpg"
+      ],
+      "shortDescription": "Llavero del Michi Pilfrut sabor manzana.",
+      "longDescription": "Lindo llavero.",
+      "size": "12 cm"
+    },
+    {
+      "id": "ll-nyancat",
+      "category": "llavero",
+      "name": "Llavero Nyan Cat",
+      "price": 10,
+      "available": true,
+      "restockDate": "",
+      "img": "images/llnc.jpg",
+      "images": [
+        "images/llnc1.jpg",
+        "images/llnc2.jpg"
+      ],
+      "shortDescription": "Llavero Nyan Cat.",
+      "longDescription": "Lindo llavero.",
+      "size": "10 cm"
     }
+
+    
   ]
 }
