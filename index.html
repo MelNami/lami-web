@@ -8,14 +8,39 @@
 </head>
 <body>
   <header class="site-header">
-    <div class="brand">
-      <img src="images/logo.png" alt="LAMI logo" class="logo">
-      <div>
-        <h1>LAMI</h1>
-        <div class="tag">Peluches inspirados en memes</div>
-      </div>
+  <div class="brand">
+    <img src="images/logo.png" alt="LAMI logo" class="logo">
+    <div>
+      <h1>LAMI</h1>
+      <div class="tag">Pequeños detalles, grandes sonrisas.</div>
     </div>
-  </header>
+  </div>
+
+  <!-- NUEVO: acciones header: Sobre LAMI (izq) y carrito (derecha) -->
+  <div class="header-actions">
+    <!-- link rápido a la sección Sobre LAMI -->
+    <a href="#about-lami" class="header-link" id="headerAbout">Sobre LAMI</a>
+
+    <!-- icono carrito -->
+    <button id="headerCartBtn" class="header-cart" aria-label="Abrir carrito">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+        <path fill="currentColor" d="M7 4h-2l-1 2h2l2 9h8l3-7H8.4" />
+        <circle cx="10" cy="20" r="1.5" fill="currentColor"></circle>
+        <circle cx="18" cy="20" r="1.5" fill="currentColor"></circle>
+      </svg>
+      <span id="headerCartBadge" class="header-cart-badge" aria-hidden="true">0</span>
+    </button>
+  </div>
+</header>
+
+
+  <!-- BANNER PROMOCIONAL -->
+  <div id="promoBanner" class="promo-banner" role="region" aria-live="polite">
+    <div class="promo-inner">
+      <strong>Nuevo:</strong> MEOWL Edición Navidad 🎄 — ¡envíos limitados! &nbsp;
+      <button id="promoClose" class="promo-close" aria-label="Cerrar banner">X</button>
+    </div>
+  </div>
 
   <main class="container">
     <!-- Sección: Peluches -->
@@ -29,6 +54,56 @@
       <h2>Llaveros</h2>
       <div id="catalog-llaveros" class="grid"></div>
     </section>
+
+    <!-- SOBRE LAMI -->
+    <section id="about-lami" class="about-section">
+      <h2>Sobre LAMI</h2>
+      <div class="about-inner">
+        <img src="images/logo.png" alt="Logo LAMI" class="about-img">
+        <div class="about-text">
+          <p><strong>Hola, somos LAMI.</strong>
+            <br><br>Creemos que los momentos tiernos también merecen existir en el mundo real.
+              Por eso transformamos memes y personajes que te hacen sonreír
+              en peluches suaves, llenos de color, humor y cariño.
+              Cada diseño nace pensando en una sola cosa:
+              que cuando lo abraces, sientas un pedacito de alegría contigo.
+              Elegir un LAMI es regalarte o regalar un momento feliz… todos los días.</p>
+          <ul>
+            <li>Somos de La Paz Bolivia </li>
+            <li>Envíos a toda Bolivia</li>
+            <li>Opciones de personalización (consulta por WhatsApp)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO + REDES -->
+    <!-- CONTACTO + REDES (actualizado) -->
+    <section id="contacto" class="contact-section">
+      <h2>Contacto & Redes</h2>
+      <div class="contact-grid">
+
+        <!-- WhatsApp -->
+        <a id="waContact" class="contact-card wa" href="https://wa.me/59176779264" target="_blank" rel="noopener">
+          <img src="images/whatsa.png" alt="WhatsApp" width="40" height="40">
+          <div><strong>WhatsApp</strong><small>Escríbeme</small></div>
+        </a>
+
+        <!-- TikTok -->
+        <a class="contact-card" href="https://www.tiktok.com/@lami_oficial?_r=1&_t=ZM-91oYJfgCaRH" target="_blank" rel="noopener">
+          <img src="images/tiktok.png" alt="TikTok" width="40" height="40">
+          <div><strong>TikTok</strong><small>@lami_oficial</small></div>
+        </a>
+
+        <!-- Facebook -->
+        <a class="contact-card" href="https://www.facebook.com/share/1BTHCXv9D7/" target="_blank" rel="noopener">
+          <img src="images/facebook.png" alt="Facebook" width="40" height="40">
+          <div><strong>Facebook</strong><small>/lami</small></div>
+        </a>
+
+      </div>
+    </section>
+
   </main>
 
   <button id="cartBtn" class="cart-btn">Carrito (<span id="cartCount">0</span>)</button>
@@ -36,36 +111,22 @@
   <!-- Modal FULLSCREEN para Ver más detalles -->
   <div id="detailModal" class="detail-modal">
     <div class="detail-container">
-      
       <button id="closeDetail" class="detail-close">&times;</button>
-
       <div class="detail-left">
-
-        <!-- Imagen principal grande -->
         <div class="detail-main-wrapper">
           <button id="prevImg" class="detail-nav prev">&#10094;</button>
-
           <img id="detail-main" class="detail-main-img" alt="Imagen del producto">
-
           <button id="nextImg" class="detail-nav next">&#10095;</button>
         </div>
-
-        <!-- Miniaturas -->
         <div id="detail-thumbs" class="detail-thumbs" aria-hidden="false"></div>
       </div>
-
       <div class="detail-right">
         <h2 id="detail-name" class="detail-title"></h2>
-
         <div id="detail-price" class="detail-price" aria-live="polite"></div>
-
         <div id="detail-size" class="detail-size"></div>
-
         <p id="detail-desc" class="detail-desc"></p>
-
         <div id="detail-countdown" class="detail-countdown"></div>
       </div>
-
     </div>
   </div>
 
@@ -74,16 +135,14 @@
     <div class="modal-content cart-modern">
       <span id="closeCart" class="close" role="button" aria-label="Cerrar carrito">&times;</span>
       <h2 class="cart-title">Tu Carrito</h2>
-
-      <!-- Tabla contenedora -->
       <table class="cart-table" role="table" aria-label="Carrito de compras">
         <thead>
           <tr>
-            <th>Producto</th>
-            <th>Nombre</th>
-            <th>Cant.</th>
-            <th>Subtotal</th>
-            <th></th>
+            <th class="cart-col-img">Producto</th>
+            <th class="cart-col-name">Nombre</th>
+            <th class="cart-col-qty">Cant.</th>
+            <th class="cart-col-sub">Subtotal</th>
+            <th class="cart-col-rm"></th>
           </tr>
         </thead>
         <tbody id="cartContent"></tbody>
@@ -94,10 +153,9 @@
       </div>
 
       <div class="cart-buttons">
-        <a id="payWhatsapp" class="btn-whatsapp" href="#" target="_blank" rel="noopener">
-          Pedir por WhatsApp
+        <a id="payWhatsapp" class="btn-whatsapp" href="#" target="_blank">
+          Pagar por WhatsApp
         </a>
-
         <button id="clearCart" class="btn-clear">Vaciar carrito</button>
       </div>
     </div>
@@ -105,8 +163,45 @@
 
   <div id="toast-wrap" aria-live="polite"></div>
 
-  <footer class="site-footer">© 2025 LAMI — Peluches tiernos</footer>
+  <!-- GATITO FLOTANTE (se inyecta por JS) -->
+  <div id="floatingCat" aria-hidden="true"></div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer site-footer-rich">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <img src="images/logo.png" alt="LAMI logo" class="footer-logo">
+        <p>© <span id="yearNow"></span> LAMI — Pequeños detalles, grandes sonrisas.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Atención</h4>
+        <p>¿Preguntas? <a id="waFooter" href="#" target="_blank">Escríbenos por WhatsApp</a></p>
+        <p id="visitCounter">Visitas: —</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Enlaces</h4>
+        <ul>
+          <li><a href="#about-lami">Sobre LAMI</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
 
   <script src="app.js"></script>
 </body>
+
+  <!-- LOADING SCREEN -->
+  <div id="loadingScreen" class="loading-screen">
+    <div class="loading-box">
+      <img src="images/logo.png" class="loading-logo" alt="LAMI">
+      <h2 class="loading-title">Bienvenido a LAMI</h2>
+      <p class="loading-text">Cargando peluchitos...</p>
+
+      <div class="loading-spinner"></div>
+    </div>
+  </div>
+
 </html>

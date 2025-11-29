@@ -17,6 +17,13 @@ async function loadProducts(){
     renderCatalog();
     renderCartCount();
     startCountdowns();
+    // OCULTAR LOADING CUANDO TODO ESTÉ LISTO
+    const loading = document.getElementById('loadingScreen');
+    if (loading) {
+      setTimeout(() => loading.classList.add('hidden'), 300); 
+    }
+
+
   } catch(e){
     console.error('No se pudo cargar products.json', e);
     // index.html ahora tiene dos contenedores: catalog-peluches y catalog-llaveros
@@ -84,6 +91,8 @@ function buildCard(p){
 
   card.innerHTML = `
     ${ribbon}
+    <div class="peek-btn" data-id="${p.id}">👀</div>
+
     <div class="hero"><img src="${hero}" alt="${escapeHtml(p.name)}"></div>
     <div class="title">${escapeHtml(p.name)}</div>
     <div class="short">${escapeHtml(p.shortDescription || '')}</div>
@@ -106,39 +115,49 @@ function buildCard(p){
 
 /* adjunta listeners después de haber insertado la card en el DOM */
 function attachCardEvents(p){
-  // localizar el elemento card por id
+  // localizar la tarjeta completa
+  if (navigator.vibrate) {
+    navigator.vibrate(15); // vibración corta
+  }
   const cardEl = document.getElementById(`card-${p.id}`);
 
+  // -------------------------------
   // 1) Hacer que toda la tarjeta abra el modal
+  // -------------------------------
   if(cardEl){
     cardEl.addEventListener('click', (e) => {
-      // si el clic vino desde el botón "Añadir" (o dentro de él), NO abrir el modal
-      if (!e.target.closest('.primary')) {
+      // si el clic vino desde el botón "Añadir" (primary), NO abrir modal
+      if (!e.target.closest('.primary') &&
+          !e.target.closest('.peek-btn')) {   // <- evita conflicto con ojito
         openDetailModal(p.id);
       }
     });
   }
 
-  // 2) Listener del botón añadir (si existe)
+  // -------------------------------
+  // 2) Event del BOTÓN OJITOS 👀
+  // -------------------------------
+  const peekBtn = cardEl?.querySelector('.peek-btn');
+  if(peekBtn){
+    peekBtn.addEventListener('click', (e) => {
+      e.stopPropagation();  // evita disparar el listener del card
+      openDetailModal(p.id);
+    });
+  }
+
+  // -------------------------------
+  // 3) Botón Añadir
+  // -------------------------------
   const addBtn = document.getElementById(`add-${p.id}`);
   if(addBtn){
     addBtn.addEventListener('click', (ev)=>{
-      // prevenir que el click en el botón burbujee y ejecute el listener del card
-      ev.stopPropagation();
+      ev.stopPropagation(); // evita abrir modal al tocar añadir
       addToCart(p.id, 1);
       updateCardUI(p.id);
     });
   }
 
-  // No usamos "moreBtn" porque eliminamos ese botón; esto es solo por seguridad si existiera
-  const moreBtn = document.getElementById(`more-${p.id}`);
-  if(moreBtn){
-    moreBtn.addEventListener('click', (ev) => {
-      ev.stopPropagation();
-      openDetailModal(p.id);
-    });
-  }
-
+  // actualizar badge
   updateCardUI(p.id);
 }
 
@@ -194,9 +213,32 @@ function saveCart(){
 function renderCartCount(){
   const total = Object.values(cart)
                       .reduce((s,i)=> s + (i.qty||0), 0);
-  const el = document.getElementById('cartCount');
-  if(el) el.textContent = total;
+
+  // botón flotante viejo (si existe)
+  const floatCountEl = document.getElementById('cartCount');
+  if(floatCountEl) floatCountEl.textContent = total;
+
+  // badge en header
+  const headerBadge = document.getElementById('headerCartBadge');
+  if(headerBadge){
+    if(total > 0){
+      headerBadge.style.display = 'inline-block';
+      headerBadge.textContent = total;
+    } else {
+      headerBadge.style.display = 'none';
+    }
+  }
+
+  // también puedes añadir una pequeña animación cuando aumenta
+  if(total > 0 && headerBadge){
+    headerBadge.animate([
+      { transform: 'scale(0.8)' },
+      { transform: 'scale(1.08)' },
+      { transform: 'scale(1)' }
+    ], { duration: 240, easing: 'ease-out' });
+  }
 }
+
 
 /* ============================
    Modal de detalles (fullscreen) - SIN BOTÓN "AÑADIR"
@@ -553,10 +595,115 @@ window.addEventListener('click',(e)=>{
     if(cartModal) cartModal.style.display = 'none';
   }
 });
+// Abrir carrito desde el icono del HEADER
+const headerCartBtn = document.getElementById('headerCartBtn');
+if (headerCartBtn) {
+  headerCartBtn.addEventListener('click', () => {
+    renderCartModal();
+    if (cartModal) cartModal.style.display = 'flex';
+  });
+}
 
 /* ============================
    Init
-============================ */
+========================================================================================================================================================================================== */
 loadProducts();
 
 window.addToCart = addToCart;
+/* ---------- INTEGRACIONES UI: banner, floating cat, visitas y corazon ---------- */
+
+/* Banner: cerrar */
+const promoBanner = document.getElementById('promoBanner');
+const promoClose = document.getElementById('promoClose');
+if(promoClose && promoBanner){
+  promoClose.addEventListener('click', ()=> {
+    promoBanner.classList.add('hidden');
+    localStorage.setItem('lami_promo_closed', '1');
+  });
+  // si el usuario ya lo cerró antes, ocultar
+  if(localStorage.getItem('lami_promo_closed') === '1') promoBanner.classList.add('hidden');
+}
+
+/* Floating cat: abre WhatsApp (usa WHATSAPP_NUMBER) */
+const floatingCat = document.getElementById('floatingCat');
+if(floatingCat){
+  floatingCat.addEventListener('click', ()=> {
+    const msg = encodeURIComponent("Hola! quiero consultar sobre un peluche 😊");
+    const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
+    window.open(waUrl, '_blank');
+  });
+
+  // ligeros movimientos verticales (loop)
+  let floatDir = 0;
+  setInterval(()=> {
+    floatDir = floatDir ^ 1;
+    floatingCat.style.bottom = floatDir ? '126px' : '120px';
+  }, 2500);
+}
+
+/* Footer: año y enlace WhatsApp dinámico */
+const yearNow = document.getElementById('yearNow');
+if(yearNow) yearNow.textContent = new Date().getFullYear();
+const waFooter = document.getElementById('waFooter');
+const waContact = document.getElementById('waContact');
+const waFooterLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hola!')}`;
+if(waFooter) waFooter.href = waFooterLink;
+if(waContact) waContact.href = waFooterLink;
+
+/* Contador de visitas simple (local) */
+const visitCounterEl = document.getElementById('visitCounter');
+(function trackVisits(){
+  try {
+    const key = 'lami_visits_total';
+    const current = parseInt(localStorage.getItem(key) || '0', 10) + 1;
+    localStorage.setItem(key, String(current));
+    if(visitCounterEl) visitCounterEl.textContent = `Visitas: ${current}`;
+  } catch(e){}
+})();
+
+/* Efecto corazón al añadir al carrito (se anexa al body y se anima) */
+function showHeartAt(x, y){
+  const heart = document.createElement('div');
+  heart.className = 'add-heart';
+  heart.style.left = `${x}px`;
+  heart.style.top = `${y}px`;
+  heart.innerHTML = `<svg viewBox="0 0 24 24" width="28" height="28" fill="#ff6b6b" aria-hidden="true"><path d="M12 21s-7-4.35-9-6.58C-1.2 10.74 3.6 4.5 8.6 7.1 10.2 8 12 9.8 12 9.8s1.8-1.8 3.4-2.7c5-2.6 9.8 3.64 5.6 7.32C19 16.65 12 21 12 21z"/></svg>`;
+  document.body.appendChild(heart);
+  requestAnimationFrame(()=> heart.classList.add('show'));
+  setTimeout(()=> {
+    heart.classList.remove('show');
+    setTimeout(()=> heart.remove(), 400);
+  }, 700);
+}
+
+/* Interceptar addToCart para mostrar corazón sobre botón */
+const originalAdd = window.addToCart;
+window.addToCart = function(id, q = 1){
+  // localizar el botón visible y su bounding box
+  const btn = document.getElementById(`add-${id}`);
+  if(btn){
+    const rect = btn.getBoundingClientRect();
+    const x = rect.left + rect.width/2;
+    const y = rect.top + rect.height/2;
+    showHeartAt(x, y);
+  }
+  // ejecutar la función original
+  if(typeof originalAdd === 'function') originalAdd(id, q);
+};
+
+
+// Animación automática de ojitos cada 30s
+setInterval(() => {
+  document.querySelectorAll('.peek-btn').forEach(btn => {
+    btn.classList.add('attention');
+    setTimeout(() => btn.classList.remove('attention'), 900);
+  });
+}, 30000);
+
+
+setTimeout(() => {
+  document.querySelectorAll('.peek-btn').forEach(btn => {
+    btn.classList.add('attention');
+    setTimeout(() => btn.classList.remove('attention'), 900);
+  });
+}, 1500);

@@ -226,6 +226,9 @@ h2 { margin-bottom:12px; }
   margin-top:15px; padding:8px 12px; background:#FFF4A3; border-radius:10px;
   font-weight:bold; width:fit-content; color:#6a5600;
 }
+.countdown:empty {
+  display: none;
+}
 
 /* CART modal base (legacy names kept) */
 .modal { position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,.35); z-index:999; }
@@ -488,11 +491,279 @@ h2 { margin-bottom:12px; }
   .grid { grid-template-columns: repeat(2, 1fr); gap:12px; }
 }
 
-/* Si quieres forzar una sola columna solo en pantallas extremadamente estrechas
-   descomenta la siguiente regla (opcional)
-*/
-/*
-@media (max-width: 320px) {
-  .grid { grid-template-columns: 1fr; }
+/* ---------- BANNER PROMOCIONAL ---------- */
+.promo-banner {
+  width:100%;
+  background: linear-gradient(90deg,#ffd6e8,#fff6d6);
+  border-bottom: 1px solid rgba(0,0,0,0.03);
+  padding: 10px 0;
+  text-align: center;
+  position: relative;
 }
-*/
+.promo-banner .promo-inner { max-width:1100px; margin:0 auto; padding:4px 16px; font-weight:700; color:#4a2a3e; }
+.promo-close {
+  position:absolute; right:12px; top:8px; background:transparent; border:0; cursor:pointer; font-weight:700;
+}
+
+/* ---------- ABOUT ---------- */
+.about-section { background: #fff; padding: 28px 18px; margin-top:28px; border-radius:12px; box-shadow: 0 6px 18px rgba(0,0,0,0.03); }
+.about-inner { display:flex; gap:18px; align-items:center; max-width:1100px; margin:0 auto; }
+.about-img { width:120px; height:120px; border-radius:14px; object-fit:cover; border:4px solid #fff; box-shadow:0 8px 20px rgba(0,0,0,0.06); }
+.about-text p { margin:0 0 6px 0; color:#333; }
+.about-text ul { margin:8px 0 0 18px; color:var(--muted); }
+
+/* responsive about */
+@media (max-width: 760px) {
+  .about-inner { flex-direction:column; text-align:center; }
+  .about-img { width:96px; height:96px; }
+}
+
+/* ---------- CONTACT CARDS ---------- */
+.contact-section { padding: 24px 18px; max-width:1100px; margin:30px auto; }
+.contact-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap:12px; }
+.contact-card { display:flex; gap:10px; align-items:center; background:#fff; border-radius:12px; padding:10px; text-decoration:none; color:inherit; box-shadow:0 6px 18px rgba(0,0,0,0.04); }
+.contact-card svg { background:var(--rosado); border-radius:10px; padding:6px; }
+.contact-card.wa svg { background: #25D366; color:#fff; }
+.contact-card div small { display:block; color:var(--muted); font-size:0.85rem; }
+
+/* ---------- FOOTER ---------- */
+.site-footer-rich { background:#fff; border-top:1px solid #f0f0f0; padding:24px 18px; margin-top:30px; }
+.footer-inner { max-width:1100px; margin:0 auto; display:flex; gap:20px; justify-content:space-between; align-items:flex-start; }
+.footer-col { min-width:160px; }
+.footer-logo { width:56px; height:56px; object-fit:cover; border-radius:10px; }
+.site-footer-rich a { color:var(--accent); text-decoration:none; }
+.site-footer-rich ul { list-style:none; padding:0; margin:0; }
+.site-footer-rich li { margin-bottom:6px; }
+
+/* mobile footer */
+@media (max-width:760px) {
+  .footer-inner { flex-direction:column; gap:12px; align-items:center; text-align:center; }
+}
+
+/* ---------- FLOATING CAT (animación cute) ---------- */
+#floatingCat {
+  position: fixed;
+  right: 18px;
+  bottom: 120px;
+  width:68px;
+  height:68px;
+  background: url('images/logo.png') center/cover no-repeat;
+  border-radius:18px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.16);
+  cursor: pointer;
+  transform-origin: center;
+  transition: transform .22s ease, bottom .25s ease;
+  z-index: 2000;
+  opacity: .96;
+}
+#floatingCat:hover { transform: translateY(-6px) scale(1.03); }
+
+/* ---------- TOAST / CORAZÓN al añadir ---------- */
+.add-heart {
+  position: absolute;
+  width: 28px; height: 28px;
+  background: none;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(.6);
+  opacity: 0;
+  transition: all .45s cubic-bezier(.2,.9,.2,1);
+  z-index: 12000;
+}
+.add-heart.show {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+/* corazón (SVG inline via JS) se verá bien sobre tarjetas */
+
+/* ---------- BANNER oculto cuando se cierra ---------- */
+.promo-banner.hidden { display:none; }
+/* ---------- HEADER ACTIONS: Sobre + Carrito (top-right) ---------- */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* mantiene brand a la izquierda y acciones a la derecha */
+  gap: 12px;
+}
+
+/* Contenedor de acciones del header */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Link "Sobre LAMI" en el header (izquierda del carrito) */
+.header-link {
+  color: #222;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 10px;
+  border-radius: 10px;
+  transition: background .12s ease, transform .12s ease;
+}
+.header-link:hover { background: rgba(0,0,0,0.04); transform: translateY(-2px); }
+
+/* Botón del carrito (botón limpio con icono) */
+.header-cart {
+  position: relative;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+}
+.header-cart svg { display:block; }
+
+/* Badge pequeño (círculo verde) */
+.header-cart-badge {
+  display: none; /* oculto cuando es 0 */
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: var(--btn-add); /* verde */
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  transform: translate(6px, -6px);
+}
+
+/* Si quieres el badge solo como dot (sin número) puedes ajustar: */
+/* .header-cart-badge::after { content: ""; width:10px; height:10px; border-radius:50%; background:var(--btn-add); display:block; } */
+
+/* Ajustes responsive: mantener integridad */
+@media (max-width: 760px) {
+  .site-header { padding-right: 12px; }
+  .header-link { display: none; /* oculta el texto en móviles si quieres (opcional) */ }
+}
+
+
+
+/* ==============================
+   LOADING SCREEN
+============================== */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  background: #fffafc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20000;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.loading-box {
+  text-align: center;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.loading-logo {
+  width: 90px;
+  height: 90px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  animation: popIn 0.7s ease-out;
+}
+
+.loading-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.loading-text {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 18px;
+}
+
+/* Spinner bonito */
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ffd4e5;
+  border-top-color: #ff6fa9;
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.6); opacity: 0; }
+  80% { transform: scale(1.07); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Cuando se oculta */
+.loading-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+
+/* BOTÓN OJITOS (ver más) */
+.peek-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  width: 34px;
+  height: 34px;
+
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 18px;
+  cursor: pointer;
+
+  opacity: 0.9;
+  transition: transform .15s ease, opacity .15s ease;
+  z-index: 50;
+}
+
+.peek-btn:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Animación principal (cada 30 segundos) */
+@keyframes wiggle {
+  0% { transform: rotate(0deg) scale(1); }
+  20% { transform: rotate(8deg) scale(1.1); }
+  40% { transform: rotate(-8deg) scale(1.1); }
+  60% { transform: rotate(5deg) scale(1.05); }
+  80% { transform: rotate(-5deg) scale(1.05); }
+  100% { transform: rotate(0deg) scale(1); }
+}
+
+.peek-btn.attention {
+  animation: wiggle 0.8s ease;
+}
+
+
