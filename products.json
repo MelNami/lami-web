@@ -99,21 +99,19 @@
       "size": "23 cm"
     },
     {
-      "id": "oso-nebulosa",
+      "id": "proxima",
       "category": "peluche",
-      "name": "Osito Nebulosa LAMI",
-      "price": 62,
+      "name": "Proximamente",
+      "price": 1,
       "available": false,
       "restockDate": "2025-11-29T20:00:00",
-      "img": "images/meowl22.jpeg",
+      "img": "images/prox.png",
       "images": [
-        "images/meowl22.jpeg",
-        "images/meowl22.jpeg",
-        "images/meowl22.jpeg"
+        "images/prox.png"
       ],
-      "shortDescription": "Osito suave con patrón de nebulosa (agotado).",
-      "longDescription": "Osito Nebulosa con estampado tipo galaxia en tonos morado, azul y rosa. Relleno de fibra siliconada y acabado suave. Agotado temporalmente; su restock está programado para dentro de 4 días.",
-      "size": "24 cm"
+      "shortDescription": "",
+      "longDescription": "",
+      "size": "?"
     },
     {
       "id": "ll-michicocacola",
@@ -194,6 +192,21 @@
       "shortDescription": "Llavero Nyan Cat.",
       "longDescription": "Lindo llavero.",
       "size": "10 cm"
+    },
+    {
+      "id": "proximoll",
+      "category": "llavero",
+      "name": "Proximamente",
+      "price": 1,
+      "available": false,
+      "restockDate": "2025-11-29T20:00:00",
+      "img": "images/prox.png",
+      "images": [
+        "images/prox.png"
+      ],
+      "shortDescription": "",
+      "longDescription": "",
+      "size": "?"
     }
 
     
