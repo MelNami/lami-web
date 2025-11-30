@@ -36,7 +36,7 @@
     {
       "id": "meowl-35",
       "category": "peluche",
-      "name": "Peluche Meowl grande",
+      "name": "Peluche/ Almohada Meowl",
       "price": 130,
       "available": true,
       "restockDate": "",
@@ -45,14 +45,30 @@
         "images/mlg1.jpg",
         "images/mlg2.jpg"
       ],
-      "shortDescription": "Versión grande del Meowl, más abrazable.",
+      "shortDescription": "Versión grande del Meowl, más abrazable, mide 35 cm. de alto",
       "longDescription": "MEOWL grandote mide 35 cm de alto, con relleno extra de fibra siliconada para que sea súper esponjoso. ",
+      "size": "35 cm"
+    },
+          {
+      "id": "perroFido",
+      "category": "peluche",
+      "name": "Peluche/almohada Perro Fido",
+      "price": 95,
+      "available": true,
+      "restockDate": "",
+      "img": "images/perro.jpg",
+      "images": [
+        "images/perro1.jpg",
+        "images/perro2.jpg"
+      ],
+      "shortDescription": "Peluche Perro Fido mide 35 cm. de alto.",
+      "longDescription": "El perro Fido , Almohada mide 35 cm. de alto, ideal para almohada, Perro de Missa Sinfonia",
       "size": "35 cm"
     },
     {
       "id": "laira-40",
       "category": "peluche",
-      "name": "Peluche la ira me consume (Zuzu)",
+      "name": "Peluche/ Almohada la ira me consume (Zuzu)",
       "price": 130,
       "available": true,
       "restockDate": "",
@@ -62,7 +78,7 @@
         "images/ira2.jpg",
         "images/laira.jpeg"
       ],
-      "shortDescription": "Peluche de La ira me consume o Zuzu.",
+      "shortDescription": "Peluche de La ira me consume. Mide 40 cm. de alto.",
       "longDescription": "Este peluche mide 40 cm. de alto , puedes uarlo como almohada, también con relleno de fibra siliconada. Perfecto para un regalo unico y diferente.",
       "size": "40 cm"
     },
@@ -98,6 +114,23 @@
       "longDescription": "Este es un peluche de un gatito Berenjena ,mide 23 cm. de alto. ",
       "size": "23 cm"
     },
+      {
+      "id": "michiSaltenia",
+      "category": "peluche",
+      "name": "Michi Salteña",
+      "price": 30,
+      "available": true,
+      "restockDate": "",
+      "img": "images/salte.jpg",
+      "images": [
+        "images/salte1.jpg",
+        "images/salte2.jpg"
+      ],
+      "shortDescription": "Peluche mediano de Michi Salteña.",
+      "longDescription": "Este es un peluche de un gatito Salteña ,mide 23 cm. de alto. ",
+      "size": "23 cm"
+    },
+
     {
       "id": "proxima",
       "category": "peluche",
@@ -190,6 +223,22 @@
         "images/llnc2.jpg"
       ],
       "shortDescription": "Llavero Nyan Cat.",
+      "longDescription": "Lindo llavero.",
+      "size": "10 cm"
+    },
+        {
+      "id": "ll-panamiguelG",
+      "category": "llavero",
+      "name": "Llavero Pana Miguel con moñito",
+      "price": 10,
+      "available": true,
+      "restockDate": "",
+      "img": "images/llpmg.jpg",
+      "images": [
+        "images/llpmg1.jpg",
+        "images/llpmg2.jpg"
+      ],
+      "shortDescription": "Llavero Pana Miguel con moñito. Mide 10 cm. de alto",
       "longDescription": "Lindo llavero.",
       "size": "10 cm"
     },

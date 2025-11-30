@@ -78,10 +78,10 @@ function renderCatalog(){
 }
 
 /* Construye el elemento card (sin añadir eventos) */
+/* Construye el elemento card (sin añadir eventos) */
 function buildCard(p){
   const card = document.createElement('article');
   card.className = 'card';
-  // añadimos un id al card para poder referenciarlo después
   card.id = `card-${p.id}`;
 
   if(!p.available) card.classList.add('opaco');
@@ -91,7 +91,7 @@ function buildCard(p){
 
   card.innerHTML = `
     ${ribbon}
-    <div class="peek-btn" data-id="${p.id}">👀</div>
+    
 
     <div class="hero"><img src="${hero}" alt="${escapeHtml(p.name)}"></div>
     <div class="title">${escapeHtml(p.name)}</div>
@@ -103,55 +103,54 @@ function buildCard(p){
     <div class="controls">
       <div class="counter-badge" id="badge-${p.id}" style="display:none"></div>
 
-     ${ p.available
-        ? `<button id="add-${p.id}" class="btn primary">${buttonTextFor(p.id)}</button>`
-        : ''
-    }
+      <!-- NUEVO: Botón Ver más detalles colocado antes del Añadir al Carrito -->
+      ${ p.available
+         ? `<button id="view-${p.id}" class="btn secondary">Ver más detalles</button>`
+         : ''
+      }
 
+      ${ p.available
+         ? `<button id="add-${p.id}" class="btn primary">${buttonTextFor(p.id)}</button>`
+         : ''
+      }
     </div>
   `;
   return card;
 }
 
 /* adjunta listeners después de haber insertado la card en el DOM */
+/* adjunta listeners después de haber insertado la card en el DOM */
 function attachCardEvents(p){
-  // localizar la tarjeta completa
   if (navigator.vibrate) {
-    navigator.vibrate(15); // vibración corta
+    navigator.vibrate(15);
   }
   const cardEl = document.getElementById(`card-${p.id}`);
-
-  // -------------------------------
-  // 1) Hacer que toda la tarjeta abra el modal
-  // -------------------------------
   if(cardEl){
     cardEl.addEventListener('click', (e) => {
       // si el clic vino desde el botón "Añadir" (primary), NO abrir modal
       if (!e.target.closest('.primary') &&
-          !e.target.closest('.peek-btn')) {   // <- evita conflicto con ojito
+          !e.target.closest('.peek-btn') &&
+          !e.target.closest('.secondary')) {   // <- evita conflicto con "Ver más"
         openDetailModal(p.id);
       }
     });
   }
 
-  // -------------------------------
-  // 2) Event del BOTÓN OJITOS 👀
-  // -------------------------------
-  const peekBtn = cardEl?.querySelector('.peek-btn');
-  if(peekBtn){
-    peekBtn.addEventListener('click', (e) => {
-      e.stopPropagation();  // evita disparar el listener del card
+
+  // NUEVO: Botón Ver más detalles
+  const viewBtn = document.getElementById(`view-${p.id}`);
+  if(viewBtn){
+    viewBtn.addEventListener('click', (ev) => {
+      ev.stopPropagation(); // no queremos que el card abra otra vez
       openDetailModal(p.id);
     });
   }
 
-  // -------------------------------
-  // 3) Botón Añadir
-  // -------------------------------
+  // Botón Añadir
   const addBtn = document.getElementById(`add-${p.id}`);
   if(addBtn){
     addBtn.addEventListener('click', (ev)=>{
-      ev.stopPropagation(); // evita abrir modal al tocar añadir
+      ev.stopPropagation();
       addToCart(p.id, 1);
       updateCardUI(p.id);
     });
@@ -160,6 +159,7 @@ function attachCardEvents(p){
   // actualizar badge
   updateCardUI(p.id);
 }
+
 
 /* texto del botón */
 function buttonTextFor(id){
@@ -183,7 +183,7 @@ function updateCardUI(id){
     }
   }
 
-  if(addBtn) addBtn.textContent = qty > 0 ? `Añadir 1 más` : `Añadir`;
+  if(addBtn) addBtn.textContent = qty > 0 ? `Añadir 1 más` : `Añadir al Carrito`;
 }
 
 /* ============================
@@ -676,16 +676,6 @@ window.addToCart = function(id, q = 1){
   if(typeof originalAdd === 'function') originalAdd(id, q);
 };
 
-
-// Animación automática de ojitos cada 30s
-setInterval(() => {
-  document.querySelectorAll('.peek-btn').forEach(btn => {
-    btn.classList.add('attention');
-    setTimeout(() => btn.classList.remove('attention'), 900);
-  });
-}, 30000);
-
-
 setTimeout(() => {
   document.querySelectorAll('.peek-btn').forEach(btn => {
     btn.classList.add('attention');
@@ -784,3 +774,5 @@ setInterval(showRandomMessage, 8000);
 
 // también cuando el usuario toca el gatito
 cat.addEventListener("click", showRandomMessage);
+
+

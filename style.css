@@ -574,6 +574,7 @@ palabras
   transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
 }
 
+
 .btn.secondary:hover {
   background: var(--btn-detail-hover);
   transform: translateY(-2px);
@@ -1260,46 +1261,58 @@ palabras
 .site-footer-rich li {margin-bottom: 6px;
 }
 /* ============================================
-GATITO FLOTANTE
+   GATITO FLOTANTE — FIJO EN LA ESQUINA
 ============================================ */
 #floatingCat {
-position: fixed;
-right: 18px;
-bottom: 100px;
-width: 70px;
-height: 70px;
-background: url('images/logo.png') center/cover no-repeat;
-border-radius: 18px;
-box-shadow: 0 8px 20px rgba(0,0,0,0.16);
-z-index: 2000;
-cursor: pointer;
-animation: floaty 3s ease-in-out infinite;
+  position: fixed !important;
+  right: 16px !important;
+  bottom: 16px !important;
+  width: 70px;
+  height: 70px;
+  background: url('images/logo.png') center/cover no-repeat;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.16);
+  z-index: 99999 !important;
+  cursor: pointer;
+
+  /* Eliminar TODO movimiento */
+  animation: none !important;
+  transform: none !important;
+  transition: none !important;
+
+  /* Evitar que pueda arrastrarse o seleccionarse */
+  user-select: none !important;
+  -webkit-user-drag: none !important;
+  touch-action: none !important;
 }
-@keyframes floaty {
-0% { transform: translateY(0px); }
-50% { transform: translateY(-8px); }
-100% { transform: translateY(0px); }
-}
+
+/* ============================================
+   MENSAJE DEL GATITO – ANCLADO TAMBIÉN
+============================================ */
 .cat-message {
-position: fixed;
-right: 100px;
-bottom: 120px;
-background: #fff;
-padding: 10px 14px;
-border-radius: 12px;
-box-shadow: 0 4px 14px rgba(0,0,0,0.15);
-font-size: 0.9rem;
-font-weight: 600;
-opacity: 0;
-pointer-events: none;
-transform: translateY(10px);
-transition: opacity .35s ease, transform .35s ease;
-z-index: 2001;
+  position: fixed !important;
+  right: 100px !important;
+  bottom: 60px !important;
+  background: #fff;
+  padding: 10px 14px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+  font-size: 0.9rem;
+  font-weight: 600;
+  opacity: 0;
+  pointer-events: none;
+
+  /* Sin movimientos verticales */
+  transform: none !important;
+  transition: opacity .35s ease !important;
+
+  z-index: 99999 !important;
 }
+
 .cat-message.show {
-opacity: 1;
-transform: translateY(0);
+  opacity: 1 !important;
 }
+
 /* ============================================
 RESPONSIVE / MEDIA QUERIES
 ============================================ */
