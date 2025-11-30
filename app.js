@@ -624,22 +624,7 @@ if(promoClose && promoBanner){
   if(localStorage.getItem('lami_promo_closed') === '1') promoBanner.classList.add('hidden');
 }
 
-/* Floating cat: abre WhatsApp (usa WHATSAPP_NUMBER) */
-const floatingCat = document.getElementById('floatingCat');
-if(floatingCat){
-  floatingCat.addEventListener('click', ()=> {
-    const msg = encodeURIComponent("Hola! quiero consultar sobre un peluche 😊");
-    const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
-    window.open(waUrl, '_blank');
-  });
 
-  // ligeros movimientos verticales (loop)
-  let floatDir = 0;
-  setInterval(()=> {
-    floatDir = floatDir ^ 1;
-    floatingCat.style.bottom = floatDir ? '126px' : '120px';
-  }, 2500);
-}
 
 /* Footer: año y enlace WhatsApp dinámico */
 const yearNow = document.getElementById('yearNow');
@@ -794,7 +779,7 @@ function showRandomMessage() {
   }, 3500);
 }
 
-// mensaje cada 25 segundos
+// mensaje cada 8 segundos
 setInterval(showRandomMessage, 8000);
 
 // también cuando el usuario toca el gatito
