@@ -8,11 +8,7 @@
       "available": true,
       "restockDate": "",
       "img": "images/ml.jpg",
-      "images": [
-        "images/ml1.jpg",
-        "images/ml2.jpg",
-        "images/meowl22.jpeg"
-      ],
+      "images": ["images/ml1.jpg", "images/ml2.jpg", "images/meowl22.jpeg"],
       "shortDescription": "Peluche Meowl, suave y abrazable.",
       "longDescription": "Meowl de 22 cm de alto, relleno de fibra siliconada, con el diseño del Meowl en la parte frontal y el diseño de las plumas del búho en el reverso. Textura suave tipo almohadita, perfecto para abrazar o decorar.",
       "size": "22 cm"
@@ -25,10 +21,7 @@
       "available": true,
       "restockDate": "",
       "img": "images/mln.jpg",
-      "images": [
-        "images/mln1.jpg",
-        "images/mln2.jpg"
-      ],
+      "images": ["images/mln1.jpg", "images/mln2.jpg"],
       "shortDescription": "Edición navideña con gorrito removible.",
       "longDescription": "Versión navideña del Meowl 22 cm. Mantiene el relleno de fibra siliconada ,  incluye un gorrito navideño que se puede poner y sacar. Ideal como regalo de temporada.",
       "size": "22 cm"
@@ -41,15 +34,12 @@
       "available": true,
       "restockDate": "",
       "img": "images/mlg.jpg",
-      "images": [
-        "images/mlg1.jpg",
-        "images/mlg2.jpg"
-      ],
+      "images": ["images/mlg1.jpg", "images/mlg2.jpg"],
       "shortDescription": "Versión grande del Meowl, más abrazable, mide 35 cm. de alto",
       "longDescription": "MEOWL grandote mide 35 cm de alto, con relleno extra de fibra siliconada para que sea súper esponjoso. ",
       "size": "35 cm"
     },
-          {
+    {
       "id": "perroFido",
       "category": "peluche",
       "name": "Peluche/almohada Perro Fido",
@@ -57,13 +47,75 @@
       "available": true,
       "restockDate": "",
       "img": "images/perro.jpg",
-      "images": [
-        "images/perro1.jpg",
-        "images/perro2.jpg"
-      ],
+      "images": ["images/perro1.jpg", "images/perro2.jpg"],
       "shortDescription": "Peluche Perro Fido mide 35 cm. de alto.",
       "longDescription": "El perro Fido , Almohada mide 35 cm. de alto, ideal para almohada, Perro de Missa Sinfonia",
       "size": "35 cm"
+    },
+    {
+      "id": "pana",
+      "category": "peluche",
+      "name": "Peluche Pana Miguel",
+      "price": 95,
+      "available": true,
+      "restockDate": "",
+      "img": "images/pana.jpg",
+      "images": ["images/pana1.jpg", "images/pana2.jpg"],
+      "shortDescription": "Peluche Pana Miguel mide 40 cm. de alto ",
+      "longDescription": "Panamiguel es un gatito tierno y encantador, de pie, con una carita que derrite miradas. Cuenta con sublimado completo: al frente muestra su expresión adorable y atrás su espaldita de gato. Un peluche suave, bonito y lleno de personalidad, ideal para decorar, abrazar o regalarte un mimo. ✨",
+      "size": "40 cm"
+    },
+    {
+      "id": "panafr",
+      "category": "peluche",
+      "name": "Peluche Pana Miguel con flores rojas",
+      "price": 95,
+      "available": true,
+      "restockDate": "",
+      "img": "images/panafr.jpg",
+      "images": ["images/panafr1.jpg", "images/panafr2.jpg"],
+      "shortDescription": "Peluche Pana Miguel mide 40 cm. de alto ",
+      "longDescription": "Panamiguel llega con un ramo de flores rojas, listo para decir “te quiero” sin palabras. Un regalo perfecto para tu novia, novio, pareja o esa persona especial que quieres sorprender. Tierno, romántico y lleno de detalle… porque algunos regalos hablan por ti ❤️",
+      "size": "40 cm"
+    },
+    {
+      "id": "panafa",
+      "category": "peluche",
+      "name": "Peluche Pana Miguel con flores amarillas",
+      "price": 95,
+      "available": true,
+      "restockDate": "",
+      "img": "images/panafa.jpg",
+      "images": ["images/panafa1.jpg", "images/panafa2.jpg"],
+      "shortDescription": "Peluche Pana Miguel mide 40 cm. de alto ",
+      "longDescription": "Panamiguel llega con un ramo de flores amarillas, símbolo de alegría, cariño y buenos deseos. Un regalo perfecto para Navidad, ideal para sorprender a tu novia, novio, amigos o a mamá y papá. Un detalle tierno que transmite luz, amor y abrazos en forma de peluche ✨🎁 ",
+      "size": "40 cm"
+    },
+        {
+      "id": "pnyancat",
+      "category": "peluche",
+      "name": "Peluche/almohada Nyan Cat",
+      "price": 75,
+      "available": true,
+      "restockDate": "",
+      "img": "images/pnyancat.jpg",
+      "images": ["images/pnyancat1.jpg", "images/pnyancat2.jpg"],
+      "shortDescription": "Peluche Nyan Cat mide 40 cm. de alto.",
+      "longDescription": "El icónico Nyan Cat llega en versión peluche con sublimado en ambas caras. Al frente y al reverso se muestra el mismo Nyan Cat colorido, para que se vea increíble desde cualquier ángulo. Un peluche alegre, nostálgico y llamativo, ideal para decorar, regalar o darle un toque divertido a cualquier espacio.",
+      "size": "40 cm"
+    },
+    {
+      "id": "pcoca",
+      "category": "peluche",
+      "name": "Peluche Michi Coca Cola",
+      "price": 50,
+      "available": true,
+      "restockDate": "",
+      "img": "images/pcoca.jpg",
+      "images": ["images/pcoca1.jpg", "images/pcoca2.jpg"],
+      "shortDescription": "Peluche Michi Coca Cola .",
+      "longDescription": "  ",
+      "size": "30 cm"
     },
     {
       "id": "laira-40",
@@ -73,14 +125,23 @@
       "available": true,
       "restockDate": "",
       "img": "images/ira.jpg",
-      "images": [
-        "images/ira1.jpg",
-        "images/ira2.jpg",
-        "images/laira.jpeg"
-      ],
+      "images": ["images/ira1.jpg", "images/ira2.jpg", "images/laira.jpeg"],
       "shortDescription": "Peluche de La ira me consume. Mide 40 cm. de alto.",
-      "longDescription": "Este peluche mide 40 cm. de alto , puedes uarlo como almohada, también con relleno de fibra siliconada. Perfecto para un regalo unico y diferente.",
+      "longDescription": "El icónico gatito gris de internet llega en versión peluche. Con su mirada seria y expresión inconfundible, es perfecto para decorar el sillón, acompañarte mientras descansas o usarlo como almohada suave. Cuenta con sublimado completo, mostrando su carita al frente y su espalda de gatito atrás. Ideal para regalar (o autorregalarse). algo unico y diferente.",
       "size": "40 cm"
+    },
+    {
+      "id": "floppa",
+      "category": "peluche",
+      "name": "Peluche Floppa Cubo",
+      "price": 120,
+      "available": true,
+      "restockDate": "",
+      "img": "images/floppa.jpg",
+      "images": ["images/floppa1.jpg", "images/floppa2.jpg", "images/floppa3.jpg", "images/floppa4.jpeg"],
+      "shortDescription": "Peluche de La ira me consume. Mide 20 cm. de cada lado.",
+      "longDescription": "Flopa cubo es la versión más divertida del famoso Floppa de internet… pero en forma de cubo. Serio, inexpresivo y totalmente meme, es perfecto para decorar tu sillón, tu cuarto o regalar a alguien que ama el humor random de internet. Suave, abrazable y llamativo, ideal como peluche decorativo o almohada, porque a veces no necesitas sentido… solo un Flopa cubo 😌🧸.",
+      "size": "20 cm"
     },
     {
       "id": "banacacat24",
@@ -90,10 +151,7 @@
       "available": true,
       "restockDate": "",
       "img": "images/bn.jpg",
-      "images": [
-        "images/bn1.jpg",
-        "images/bn2.jpg"
-      ],
+      "images": ["images/bn1.jpg", "images/bn2.jpg"],
       "shortDescription": "Gatito Banana cat",
       "longDescription": "El peluchito mide 24 cm. de alto.",
       "size": "24 cm."
@@ -106,15 +164,12 @@
       "available": true,
       "restockDate": "",
       "img": "images/berj.jpg",
-      "images": [
-        "images/berj1.jpg",
-        "images/berj2.jpg"
-      ],
+      "images": ["images/berj1.jpg", "images/berj2.jpg"],
       "shortDescription": "Peluche mediano de Michi Berenjena.",
       "longDescription": "Este es un peluche de un gatito Berenjena ,mide 23 cm. de alto. ",
       "size": "23 cm"
     },
-      {
+    {
       "id": "michiSaltenia",
       "category": "peluche",
       "name": "Michi Salteña",
@@ -122,15 +177,11 @@
       "available": true,
       "restockDate": "",
       "img": "images/salte.jpg",
-      "images": [
-        "images/salte1.jpg",
-        "images/salte2.jpg"
-      ],
+      "images": ["images/salte1.jpg", "images/salte2.jpg"],
       "shortDescription": "Peluche mediano de Michi Salteña.",
       "longDescription": "Este es un peluche de un gatito Salteña ,mide 23 cm. de alto. ",
       "size": "23 cm"
     },
-
     {
       "id": "proxima",
       "category": "peluche",
@@ -139,9 +190,7 @@
       "available": false,
       "restockDate": "2025-11-29T20:00:00",
       "img": "images/prox.png",
-      "images": [
-        "images/prox.png"
-      ],
+      "images": ["images/prox.png"],
       "shortDescription": "",
       "longDescription": "",
       "size": "?"
@@ -154,10 +203,7 @@
       "available": true,
       "restockDate": "",
       "img": "images/llcc.jpg",
-      "images": [
-        "images/llcc1.jpg",
-        "images/llcc2.jpg"
-      ],
+      "images": ["images/llcc1.jpg", "images/llcc2.jpg"],
       "shortDescription": "Llavero de Coca Cola",
       "longDescription": "Llavero de Michi Coca Cola amberso y reverso.",
       "size": "12 cm"
@@ -170,10 +216,7 @@
       "available": true,
       "restockDate": "",
       "img": "images/llpz.jpg",
-      "images": [
-        "images/llpz1.jpg",
-        "images/llpz2.jpg"
-      ],
+      "images": ["images/llpz1.jpg", "images/llpz2.jpg"],
       "shortDescription": "Llavero del Michi Pizza.",
       "longDescription": "Lindo llavero.",
       "size": "12 cm"
@@ -186,10 +229,7 @@
       "available": true,
       "restockDate": "",
       "img": "images/llmts.jpg",
-      "images": [
-        "images/llmts1.jpg",
-        "images/llmts2.jpg"
-      ],
+      "images": ["images/llmts1.jpg", "images/llmts2.jpg"],
       "shortDescription": "Llavero del Michi Mentisan.",
       "longDescription": "Lindo llavero.",
       "size": "12 cm"
@@ -202,10 +242,7 @@
       "available": true,
       "restockDate": "",
       "img": "images/llpilm.jpg",
-      "images": [
-        "images/llpilm1.jpg",
-        "images/llpilm2.jpg"
-      ],
+      "images": ["images/llpilm1.jpg", "images/llpilm2.jpg"],
       "shortDescription": "Llavero del Michi Pilfrut sabor manzana.",
       "longDescription": "Lindo llavero.",
       "size": "12 cm"
@@ -218,15 +255,12 @@
       "available": true,
       "restockDate": "",
       "img": "images/llnc.jpg",
-      "images": [
-        "images/llnc1.jpg",
-        "images/llnc2.jpg"
-      ],
+      "images": ["images/llnc1.jpg", "images/llnc2.jpg"],
       "shortDescription": "Llavero Nyan Cat.",
       "longDescription": "Lindo llavero.",
       "size": "10 cm"
     },
-        {
+    {
       "id": "ll-panamiguelG",
       "category": "llavero",
       "name": "Llavero Pana Miguel con moñito",
@@ -234,10 +268,7 @@
       "available": true,
       "restockDate": "",
       "img": "images/llpmg.jpg",
-      "images": [
-        "images/llpmg1.jpg",
-        "images/llpmg2.jpg"
-      ],
+      "images": ["images/llpmg1.jpg", "images/llpmg2.jpg"],
       "shortDescription": "Llavero Pana Miguel con moñito. Mide 10 cm. de alto",
       "longDescription": "Lindo llavero.",
       "size": "10 cm"
@@ -250,14 +281,10 @@
       "available": false,
       "restockDate": "2025-11-29T20:00:00",
       "img": "images/prox.png",
-      "images": [
-        "images/prox.png"
-      ],
+      "images": ["images/prox.png"],
       "shortDescription": "",
       "longDescription": "",
       "size": "?"
     }
-
-    
   ]
 }
