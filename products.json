@@ -1,30 +1,17 @@
 {
   "items": [
     {
-      "id": "meowl-22",
+      "id": "meowl-25",
       "category": "peluche",
       "name": "Peluche Meowl mediano",
-      "price": 45,
+      "price": 55,
       "available": true,
       "restockDate": "",
       "img": "images/ml.jpg",
       "images": ["images/ml1.jpg", "images/ml2.jpg", "images/meowl22.jpeg"],
       "shortDescription": "Peluche Meowl, suave y abrazable.",
       "longDescription": "Meowl de 22 cm de alto, relleno de fibra siliconada, con el diseño del Meowl en la parte frontal y el diseño de las plumas del búho en el reverso. Textura suave tipo almohadita, perfecto para abrazar o decorar.",
-      "size": "22 cm"
-    },
-    {
-      "id": "meowl-22-navidad",
-      "category": "peluche",
-      "name": "Peluche Meowl Navideño",
-      "price": 60,
-      "available": true,
-      "restockDate": "",
-      "img": "images/mln.jpg",
-      "images": ["images/mln1.jpg", "images/mln2.jpg"],
-      "shortDescription": "Edición navideña con gorrito removible.",
-      "longDescription": "Versión navideña del Meowl 22 cm. Mantiene el relleno de fibra siliconada ,  incluye un gorrito navideño que se puede poner y sacar. Ideal como regalo de temporada.",
-      "size": "22 cm"
+      "size": "25 cm"
     },
     {
       "id": "meowl-35",
@@ -186,7 +173,7 @@
       "id": "proxima",
       "category": "peluche",
       "name": "Proximamente",
-      "price": 1,
+      "price": 0,
       "available": false,
       "restockDate": "2025-11-29T20:00:00",
       "img": "images/prox.png",
@@ -235,19 +222,6 @@
       "size": "12 cm"
     },
     {
-      "id": "ll-pilmanzana",
-      "category": "llavero",
-      "name": "Llavero pilfrut manzana",
-      "price": 17,
-      "available": true,
-      "restockDate": "",
-      "img": "images/llpilm.jpg",
-      "images": ["images/llpilm1.jpg", "images/llpilm2.jpg"],
-      "shortDescription": "Llavero del Michi Pilfrut sabor manzana.",
-      "longDescription": "Lindo llavero.",
-      "size": "12 cm"
-    },
-    {
       "id": "ll-nyancat",
       "category": "llavero",
       "name": "Llavero Nyan Cat",
@@ -261,23 +235,10 @@
       "size": "10 cm"
     },
     {
-      "id": "ll-panamiguelG",
-      "category": "llavero",
-      "name": "Llavero Pana Miguel con moñito",
-      "price": 10,
-      "available": true,
-      "restockDate": "",
-      "img": "images/llpmg.jpg",
-      "images": ["images/llpmg1.jpg", "images/llpmg2.jpg"],
-      "shortDescription": "Llavero Pana Miguel con moñito. Mide 10 cm. de alto",
-      "longDescription": "Lindo llavero.",
-      "size": "10 cm"
-    },
-    {
       "id": "proximoll",
       "category": "llavero",
       "name": "Proximamente",
-      "price": 1,
+      "price": 0,
       "available": false,
       "restockDate": "2025-11-29T20:00:00",
       "img": "images/prox.png",
