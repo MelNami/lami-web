@@ -1464,3 +1464,22 @@ text-align: center;
 .detail-modal { z-index: 1400; }
 .detail-container { z-index: 1401; }
 .detail-close { z-index: 1500; }
+
+
+.intro-section {
+  background: #fff7f2;
+  border-bottom: 1px solid #f0e0d8;
+}
+
+.intro-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.intro-inner strong {
+  color: #0048ff;
+}

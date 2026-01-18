@@ -10,7 +10,33 @@
       "img": "images/ml.jpg",
       "images": ["images/ml11.jpg", "images/ml2.jpg", "images/meowl22.jpeg"],
       "shortDescription": "Peluche Meowl, suave y abrazable.",
-      "longDescription": "Meowl de 22 cm de alto, relleno de fibra siliconada, con el diseño del Meowl en la parte frontal y el diseño de las plumas del búho en el reverso. Textura suave tipo almohadita, perfecto para abrazar o decorar.",
+      "longDescription": "Meowl de 25 cm de alto, relleno de fibra siliconada, con el diseño del Meowl en la parte frontal y el diseño de las plumas del búho en el reverso. Textura suave tipo almohadita, perfecto para abrazar o decorar.",
+      "size": "25 cm"
+    },
+     {
+      "id": "meowlsonrojado-25",
+      "category": "peluche",
+      "name": "Peluche Meowl Sonrojado",
+      "price": 55,
+      "available": true,
+      "restockDate": "",
+      "img": "images/mls.jpg",
+      "images": ["images/mls1.jpg", "images/mls2.jpg"],
+      "shortDescription": "Peluche Meowl, suave y abrazable.",
+      "longDescription": "Meowl de 25 cm de alto, relleno de fibra siliconada, con el diseño del Meowl en la parte frontal y el diseño de las plumas del búho en el reverso. Textura suave tipo almohadita, perfecto para abrazar o decorar.",
+      "size": "25 cm"
+    },
+     {
+      "id": "meowlsor-25",
+      "category": "peluche",
+      "name": "Peluche Meowl Sorprendido",
+      "price": 55,
+      "available": true,
+      "restockDate": "",
+      "img": "images/mlso.jpg",
+      "images": ["images/mlso1.jpg", "images/mlso2.jpg"],
+      "shortDescription": "Peluche Meowl, suave y abrazable.",
+      "longDescription": "Meowl de 25 cm de alto, relleno de fibra siliconada, con el diseño del Meowl en la parte frontal y el diseño de las plumas del búho en el reverso. Textura suave tipo almohadita, perfecto para abrazar o decorar.",
       "size": "25 cm"
     },
     {
@@ -23,7 +49,7 @@
       "img": "images/mlg.jpg",
       "images": ["images/mlg1.jpg", "images/mlg2.jpg"],
       "shortDescription": "Versión grande del Meowl, más abrazable, mide 35 cm. de alto",
-      "longDescription": "MEOWL grandote mide 35 cm de alto, con relleno extra de fibra siliconada para que sea súper esponjoso. ",
+      "longDescription": "MEOWL grandesito mide 35 cm de alto, con relleno extra de fibra siliconada para que sea súper esponjoso. ",
       "size": "35 cm"
     },
     {
@@ -78,7 +104,20 @@
       "longDescription": "Panamiguel llega con un ramo de flores amarillas, símbolo de alegría, cariño y buenos deseos. Un regalo perfecto para Navidad, ideal para sorprender a tu novia, novio, amigos o a mamá y papá. Un detalle tierno que transmite luz, amor y abrazos en forma de peluche ✨🎁 ",
       "size": "40 cm"
     },
-        {
+    {
+      "id": "toletole",
+      "category": "peluche",
+      "name": "Peluche Tole Tole",
+      "price": 45,
+      "available": true,
+      "restockDate": "",
+      "img": "images/tole.jpg",
+      "images": ["images/tole1.jpg", "images/tole2.jpg"],
+      "shortDescription": "Peluche Tole Tole mide 25  m de alto ",
+      "longDescription": "El famoso Tole Tole en versión peluche de 25 cm. Inspirado en el gato meme viral, con diseño tierno y divertido. Ideal para decorar, abrazar o regalar.",
+      "size": "25 cm"
+    },
+    {
       "id": "pnyancat",
       "category": "peluche",
       "name": "Peluche/almohada Nyan Cat",
@@ -104,6 +143,19 @@
       "longDescription": "  ",
       "size": "30 cm"
     },
+     {
+      "id": "chems",
+      "category": "peluche",
+      "name": "Peluche/ Almohada Chems",
+      "price": 105,
+      "available": true,
+      "restockDate": "",
+      "img": "images/chems.jpg",
+      "images": ["images/chems1.jpg", "images/chems2.jpg"],
+      "shortDescription": "Peluche de chems de 40 cm. de alto",
+      "longDescription": "Almohada suave con diseño del famoso perro meme Cheems. Es gordito, tierno y perfecto para decorar, abrazar o regalar. Ideal para fans de los memes y el buen humor.",
+      "size": "40 cm"
+    },
     {
       "id": "laira-40",
       "category": "peluche",
@@ -112,9 +164,22 @@
       "available": true,
       "restockDate": "",
       "img": "images/ira.jpg",
-      "images": ["images/ira1.jpg", "images/ira2.jpg", "images/laira.jpeg"],
+      "images": ["images/ira1.jpg", "images/ira2.jpg"],
       "shortDescription": "Peluche de La ira me consume. Mide 40 cm. de alto.",
       "longDescription": "El icónico gatito gris de internet llega en versión peluche. Con su mirada seria y expresión inconfundible, es perfecto para decorar el sillón, acompañarte mientras descansas o usarlo como almohada suave. Cuenta con sublimado completo, mostrando su carita al frente y su espalda de gatito atrás. Ideal para regalar (o autorregalarse). algo unico y diferente.",
+      "size": "40 cm"
+    },
+     {
+      "id": "gatohuh",
+      "category": "peluche",
+      "name": "Peluche/ Almohada Gato HUH",
+      "price": 130,
+      "available": true,
+      "restockDate": "",
+      "img": "images/huh.jpg",
+      "images": ["images/hhuh1.jpg", "images/huh2.jpg"],
+      "shortDescription": "Peluche del gato HUH de 40 cm. de alto.",
+      "longDescription": "Gato blanco del meme “huh?” con expresión divertida y tamaño de 40 cm. Suave, cómodo y perfecto para decorar, descansar o regalar. Ideal para fans de los memes.",
       "size": "40 cm"
     },
     {
@@ -139,8 +204,8 @@
       "restockDate": "",
       "img": "images/bn.jpg",
       "images": ["images/bn1.jpg", "images/bn2.jpg"],
-      "shortDescription": "Gatito Banana cat",
-      "longDescription": "El peluchito mide 24 cm. de alto.",
+      "shortDescription": "Gatito Banana cat de 24 cm. de alto ",
+      "longDescription": "Un gato escondido en una banana… porque internet decidió que eso tenía sentido. Diseño divertido y tamaño ideal para decorar o regalar. Perfecto para quienes aman lo raro, lo tierno y los memes sin explicación.",
       "size": "24 cm."
     },
     {
